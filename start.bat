@@ -9,7 +9,7 @@ dir
 start "Website" cmd /k "cd /d Frontend && npm start"
 
 :: Build the website
-cd /d Frontend
-npm run build
+::cd /d Frontend
+::npm run build
 
 endlocal
