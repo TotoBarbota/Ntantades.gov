@@ -24,7 +24,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # IDE settings
-.vscode/
+.vs/
 .idea/
 .DS_Store
 
