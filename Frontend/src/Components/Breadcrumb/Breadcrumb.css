@@ -1,6 +1,6 @@
 .breadcrumb{
     display: flex;
-    margin: 40px 0px 0px 320px;
+    margin: 40px 0px 0px 0px;
 }
 
 .breadcrumb a:hover, .breadcrumb svg:hover {
