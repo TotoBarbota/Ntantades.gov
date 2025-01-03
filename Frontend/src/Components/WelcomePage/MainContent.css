@@ -1,0 +1,63 @@
+
+.WelcomePage-MainContent {
+    width: 840px;
+    font-size: 19px;
+    margin-right: 20px;
+    color: #212529;
+}
+
+    .WelcomePage-MainContent h3 {
+        color: #212529;
+        font-family: "Roboto", serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 32px;
+    }
+
+    .WelcomePage-MainContent .yellowBox {
+        display:flex;
+        background-color: #F1EEA9;
+        padding: 18px;
+        justify-content:center;
+    }
+
+.WelcomePage-MainContent .intro-buttons{
+    margin: 40px 0 100px;
+    display:flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 20px;
+}
+
+    .WelcomePage-MainContent button {
+        padding: 20px 28px;
+        font-size: 20px;
+        font-family: "Roboto", serif;
+        font-weight: 200;
+        font-style: normal;
+        background-color: #00703C;
+        border: 1px solid #00703C;
+    }
+
+        .WelcomePage-MainContent button:hover {
+            background-color: #004726;
+        }
+        
+        .WelcomePage-MainContent button:focus {
+            background-color: #004726;
+            outline: 2px solid green;
+            outline-offset: 2px;
+        }
+
+
+
+        .WelcomePage-MainContent svg {
+            width: 20px;
+            height: auto;
+        }
+
+    .WelcomePage-MainContent button span {
+        width: 385px;
+    }
+
+

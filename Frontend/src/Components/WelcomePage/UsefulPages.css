@@ -1,0 +1,13 @@
+.UsefulPages {
+    width: 400px;
+}
+
+    .UsefulPages li, .UsefulPages a {
+        margin-bottom: 20px;
+        color: #0081D6 !important;
+        font-size: 16px;
+    }
+
+.UsefulPages h2 {
+    font-size: 19px;
+}

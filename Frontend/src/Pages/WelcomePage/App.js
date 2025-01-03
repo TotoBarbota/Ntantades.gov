@@ -4,6 +4,8 @@ import './App.css';
 import NavBar from "../../Components/NavBar/NavBar";
 import Footer from "../../Components/Footer/Footer";
 import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
+import MainContent from "../../Components/WelcomePage/MainContent";
+import UsefulPages from "../../Components/WelcomePage/UsefulPages";
 
 function App() {
 
@@ -14,12 +16,14 @@ function App() {
     };
     useDocumentTitle('Ntantades.gov.gr');
 
-    const breadcrumbTitle = "Ntantades.gov";
-
     return (
         <div className="App">
             <NavBar />
-            <Breadcrumb/>
+            <Breadcrumb />
+            <div className='first-section'>
+                <MainContent />
+                <UsefulPages />
+            </div>
             <Footer />
         </div>
     );

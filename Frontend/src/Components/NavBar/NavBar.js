@@ -1,5 +1,7 @@
 import { Button } from 'primereact/button';
 import { IoAccessibilitySharp } from "react-icons/io5";
+import { MdAccessibility } from 'react-icons/md';
+
 import { useNavigate } from "react-router-dom";
 import './NavBar.css';
 import { useState } from 'react';
