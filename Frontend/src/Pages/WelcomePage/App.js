@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+﻿import { useEffect } from "react"
 import './App.css';
 
 import NavBar from "../../Components/NavBar/NavBar";
@@ -19,10 +19,16 @@ function App() {
     return (
         <div className="App">
             <NavBar />
-            <Breadcrumb />
-            <div className='first-section'>
-                <MainContent />
-                <UsefulPages />
+            <div className='main'>
+                <Breadcrumb />
+                <div className='first-section'>
+                    <MainContent />
+                    <UsefulPages />
+                </div>
+                <div className='blue-line'></div>
+                <span>Για δυσκολίες ή παρατηρήσεις παρακαλούμε επικοινωνήστε με τα τηλέφωνα 2103258080 - 2103258090  ή στείλτε μήνυμα στην ηλεκτρονική
+                    διεύθυνση </span>
+                <a>ntantades@yeka.gr</a>
             </div>
             <Footer />
         </div>

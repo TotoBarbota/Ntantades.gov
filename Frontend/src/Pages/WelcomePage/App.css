@@ -42,3 +42,16 @@
     justify-content: center;
     text-align: left;
 }
+
+.App .main .blue-line {
+    padding: 3px 0;
+    margin-bottom: 40px;
+    background-color: #003375;
+}
+
+.App .main {
+    display:grid;
+    justify-content:center;
+    text-align: left;
+    margin-bottom: 80px;
+}
