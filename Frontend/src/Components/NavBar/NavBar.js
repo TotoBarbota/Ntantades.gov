@@ -1,13 +1,30 @@
 import { Button } from 'primereact/button';
 import { IoAccessibilitySharp } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 import './NavBar.css';
+import { useState } from 'react';
 
 function NavBar() {
+
+    const [loggedIn, setLoggedIn] = useState(false);
+    const navigate = useNavigate();
+
+    const handleAccessibilityMenuTitle = () => {
+        //unhide the accessibility menu title
+
+    }
+
+    const handleMyName = () => {
+        // unhide my name if i'm loggedIn
+    }
 
     return (
         <div class="NavBar">
             <nav class="NavBar-nav">
-                <button className="accessibilityMenu" ><IoAccessibilitySharp /></button>
+                <div className='accessibility'>
+                    <button className="accessibilityMenu" ><IoAccessibilitySharp /></button>
+                    <p className='accessibilityTitle'>Accessibility Menu</p>
+                </div>
                 <div className='logo'>
                     <img src={'/pictures/png/govgrYpiresiaFrontidas.png'} alt="Logo" />
                 </div>

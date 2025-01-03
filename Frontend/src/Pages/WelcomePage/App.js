@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import './App.css';
 
 import NavBar from "../../Components/NavBar/NavBar";
+import Footer from "../../Components/Footer/Footer";
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
 
     return (
         <div className="App">
-            <NavBar/>
+            <NavBar />
+            <Footer />
             <header className="App-header">
                 <p>
                     Edit <code>src/App.js</code> and save to reload.
