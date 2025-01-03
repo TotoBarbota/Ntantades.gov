@@ -1,0 +1,69 @@
+.NavBar .NavBar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px 10px 0px;
+    background-color: #003375; 
+    height: 70px; /* Ensure consistent height */
+}
+
+    .NavBar .NavBar-nav .accessibilityMenu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: #357EBD; /* Adjust color */
+        border: 1px solid #357EBD;
+        border-radius: 50%;
+        cursor: pointer;
+        color: white;
+    }
+
+        .NavBar .NavBar-nav .accessibilityMenu:hover {
+            background-color: #357EBD;
+        }
+
+    .NavBar .NavBar-nav .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+        .NavBar .NavBar-nav .logo img {
+            width: 500px; /* Adjust size as needed */
+            height: auto;
+        }
+
+    .NavBar .NavBar-nav .right-section {
+        display: flex;
+        align-items: center;
+        gap: 15px; /* Space between items */
+    }
+
+        .NavBar .NavBar-nav .right-section .name {
+            font-size: 16px;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .NavBar .NavBar-nav .right-section .connect {
+            background-color: #357EBD;
+            color: white;
+            border: 1px solid #357EBD;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            .NavBar .NavBar-nav .right-section .connect:hover {
+                background-color: #003375;
+                border-color: white;
+            }
+
+    .NavBar .line {
+        background-color: #0065B3;
+        padding: 2px;
+    }
