@@ -28,7 +28,7 @@ function App() {
                 <div className='blue-line'></div>
                 <span>Για δυσκολίες ή παρατηρήσεις παρακαλούμε επικοινωνήστε με τα τηλέφωνα 2103258080 - 2103258090  ή στείλτε μήνυμα στην ηλεκτρονική
                     διεύθυνση </span>
-                <a>ntantades@yeka.gr</a>
+                <a href='#'>ntantades@yeka.gr</a>
             </div>
             <Footer />
         </div>

@@ -5,8 +5,8 @@ const UsefulPages = () => (
         <div>
             <h2 className="text-lg font-bold mb-4">Χρήσιμοι Σύνδεσμοι</h2>
             <ul className="space-y-2">
-                <li><a href="#">Πρόσκληση Ωφελούμενων</a></li>
-                <li><a href="#" >Πρόσκληση Επιμελητών</a></li>
+                <li><a href="#"><b>Πρόσκληση Ωφελούμενων</b></a></li>
+                <li><a href="#" ><b>Πρόσκληση Επιμελητών</b></a></li>
                 <li><a href="#" >Οδηγίες</a></li>
                 <li><a href="#" >Συχνές ερωτήσεις Επιμελητές</a></li>
                 <li><a href="#" >Συχνές ερωτήσεις Ωφελούμενοι</a></li>

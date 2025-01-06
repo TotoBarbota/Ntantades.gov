@@ -1,5 +1,6 @@
 export const Routes = {
     Home: '/',
-    Login: 'Login',
-    Ntantades: 'Ntantades',
+    Login: 'login',
+    Ntantades: 'ntantades',
+    LoginVerification: 'loginVerification'
 };

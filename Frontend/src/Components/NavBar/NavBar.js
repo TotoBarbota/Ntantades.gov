@@ -1,6 +1,7 @@
 import { Button } from 'primereact/button';
 import { IoAccessibilitySharp } from "react-icons/io5";
 import { MdAccessibility } from 'react-icons/md';
+import { Routes } from '../../routes'
 
 import { useNavigate } from "react-router-dom";
 import './NavBar.css';
@@ -32,7 +33,7 @@ function NavBar() {
                 </div>
                 <div className='right-section'>
                     <p className="name" >My Name</p>
-                    <Button className="connect" label="Connect" />
+                    <Button className="connect" label="Connect" onClick={() => navigate(Routes.Login)} />
                 </div>
             </nav>
             <div class="line"></div>
