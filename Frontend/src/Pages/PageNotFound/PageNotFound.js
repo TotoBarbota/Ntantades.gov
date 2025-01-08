@@ -1,6 +1,21 @@
-import { Routes } from "../../routes";
-function PageNotFound() {
+import { useEffect } from "react"
+import Footer from "../../Components/Footer/Footer"
+import PageNotFoundComponent from "../../Components/PageNotFoundComponent/PageNotFoundComponent"
 
-};
 
-export default PageNotFound;
+const ForgotPassword = () => {
+    const useDocumentTitle = (title) => {
+        useEffect(() => {
+            document.title = title;
+        }, [title]);
+    };
+    useDocumentTitle('Page Not Found');
+    return (
+        <div>
+            <PageNotFoundComponent />
+            <Footer />
+        </div>
+    )
+}
+
+export default ForgotPassword

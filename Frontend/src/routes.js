@@ -1,6 +1,7 @@
 export const Routes = {
     Home: '/',
-    Login: 'login',
+    Login: '/login',
     Ntantades: 'ntantades',
-    LoginVerification: 'loginVerification'
+    LoginVerification: '/loginVerification',
+    AitisiSimmetoxis: '/aitisiSimmetoxis'
 };

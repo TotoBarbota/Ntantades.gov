@@ -80,7 +80,6 @@ function LoginPage() {
                 </form>
             </div>
 
-            {/* Footer Section */}
             <footer className="auth-footer">
                 <p>
                     Κέντρο Διαλειτουργικότητας (Κ.Ε.Δ.) Υπουργείου Ψηφιακής Διακυβέρνησης

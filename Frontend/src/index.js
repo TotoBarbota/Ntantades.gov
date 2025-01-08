@@ -13,12 +13,14 @@ import { Routes } from './routes';
 import LoginPage from './Pages/Login/LoginPage';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import LoginVerificationPage from './Pages/Login/LoginVerificationPage';
+import AitisiSimmetoxisPage from './Pages/aitisiSimmetoxis/aitisiSimmetoxisPage';
 
 const router = createBrowserRouter([
     { path: Routes.Home, element: <App /> },
     { path: Routes.Ntantades, element: <App /> },
     { path: Routes.Login, element: <LoginPage /> },
     { path: Routes.LoginVerification, element: <LoginVerificationPage /> },
+    { path: Routes.AitisiSimmetoxis, element: <AitisiSimmetoxisPage /> },
     { path: "*", element: <PageNotFound /> }
 ]);
 

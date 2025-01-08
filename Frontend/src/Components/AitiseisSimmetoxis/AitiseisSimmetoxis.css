@@ -1,0 +1,30 @@
+.aitiseis-simmetoxis-container {
+    justify-content: center;
+    display: grid;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.aitisi-simmetoxis-main-container .aitisi-breadcrumb {
+    margin-right: 380px;
+}
+
+
+
+.aitiseis-simmetoxis-container button {
+    justify-self: center;
+    width: 40%;
+    background-color: #357EBD;
+    color: white;
+    border: 2px solid #357EBD;
+}
+    .aitiseis-simmetoxis-container button:hover {
+        background-color: #003375;
+        border-color: white;
+    }
+    .aitiseis-simmetoxis-container .blue-notification {
+        width: 100%;
+        padding: 10px 20px;
+        margin: 10px 0 20px 0;
+        background-color: #B6D4FE;
+    }
