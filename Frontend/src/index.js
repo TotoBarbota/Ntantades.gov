@@ -13,12 +13,14 @@ import { Routes } from './routes';
 import LoginPage from './Pages/Login/LoginPage';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import LoginVerificationPage from './Pages/Login/LoginVerificationPage';
+import Option1Page1 from './Pages/Option1Page1/Option1Page1';
 
 const router = createBrowserRouter([
     { path: Routes.Home, element: <App /> },
     { path: Routes.Ntantades, element: <App /> },
     { path: Routes.Login, element: <LoginPage /> },
     { path: Routes.LoginVerification, element: <LoginVerificationPage /> },
+    { path: Routes.Option1Page1, element: <Option1Page1 /> },
     { path: "*", element: <PageNotFound /> }
 ]);
 
