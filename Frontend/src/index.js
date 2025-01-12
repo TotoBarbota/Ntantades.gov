@@ -14,6 +14,7 @@ import LoginPage from './Pages/Login/LoginPage';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import LoginVerificationPage from './Pages/Login/LoginVerificationPage';
 import AitisiSimmetoxisPage from './Pages/aitisiSimmetoxis/aitisiSimmetoxisPage';
+import ApplicationPage from './Pages/ApplicationPage/ApplicationPage';
 
 const router = createBrowserRouter([
     { path: Routes.Home, element: <App /> },
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
     { path: Routes.Login, element: <LoginPage /> },
     { path: Routes.LoginVerification, element: <LoginVerificationPage /> },
     { path: Routes.AitisiSimmetoxis, element: <AitisiSimmetoxisPage /> },
+    { path: Routes.Application, element: <ApplicationPage /> },
     { path: "*", element: <PageNotFound /> }
 ]);
 

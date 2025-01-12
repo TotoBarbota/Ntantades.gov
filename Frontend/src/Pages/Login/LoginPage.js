@@ -73,7 +73,7 @@ function LoginPage() {
                         <button type="button" className="cancel-button" onClick={() => navigate(Routes.Home)}>
                             Ακύρωση
                         </button>
-                        <button type="submit" className="submit-button">
+                        <button type="submit" className="submit-button" onClick={() => navigate(Routes.LoginVerification)}>
                             Σύνδεση
                         </button>
                     </div>

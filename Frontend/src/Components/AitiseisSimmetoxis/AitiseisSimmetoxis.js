@@ -17,9 +17,11 @@ function AitiseisSimmetoxis() {
             <Button label='Υποβολή νέας αίτησης' />
 
             {/* Three type of applications*/}
-            <Application number={555} type={"Έγκυρη"} button={"Επεξεργασία"} />
-            <Application number={444} type={"Μη Έγκυρη"} button={"Συνέχεια"} />
-            <Application number={333} type={"Σε αναμονή"} button={"Επεξεργασία"} />
+            <div className="applications-side">
+            <Application number={555} type={1} button={"Επεξεργασία"} />
+            <Application number={444} type={0} button={"Συνέχεια"} />
+            <Application number={333} type={2} button={"Επεξεργασία"} />
+            </div>
         </div>
     );
 }

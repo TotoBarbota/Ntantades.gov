@@ -66,7 +66,7 @@ function LoginVerificationPage() {
 
                     <div className="auth-buttons-verification">
                         <div className="first-row">
-                            <Button type="button" className="submit-button-verification">
+                            <Button type="button" className="submit-button-verification" onClick={() => navigate(Routes.AitisiSimmetoxis)}>
                                 Επιβεβαίωση
                             </Button>
                             <Button type="submit" className="submit-button-verification">

@@ -28,3 +28,10 @@
         margin: 10px 0 20px 0;
         background-color: #B6D4FE;
     }
+
+.aitiseis-simmetoxis-container .applications-side{
+    margin: 10px 0;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+}

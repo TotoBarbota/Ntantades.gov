@@ -3,5 +3,6 @@ export const Routes = {
     Login: '/login',
     Ntantades: 'ntantades',
     LoginVerification: '/loginVerification',
-    AitisiSimmetoxis: '/aitisiSimmetoxis'
+    AitisiSimmetoxis: '/aitisi-simmetoxis',
+    Application: `/aitisi-simmetoxis/:applicationId`
 };
