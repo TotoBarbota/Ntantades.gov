@@ -1,0 +1,18 @@
+.search-professional .search-professional-breadcrumb {
+    justify-content: center;
+    display: grid;
+    /*margin-left: -480px;*/
+}
+
+.search-professional .filters {
+    border: 2px solid #0065B3;
+}
+
+.search-professional .main-text{
+    display: flex;
+    width: auto;
+    padding-right: 300px;
+}
+
+.search-professional .right-section {
+}

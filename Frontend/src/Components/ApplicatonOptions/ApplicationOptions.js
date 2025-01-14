@@ -2,6 +2,7 @@
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Routes } from '../../routes'
 import { Button } from 'primereact/button';
 
@@ -10,6 +11,7 @@ import './ApplicationOptions.css'
 const ApplicationOptions = ({ applicationNumber, approved }) => {
     const applicationApproval = approved === '1' ? '\u0395\u03B3\u03BA\u03B5\u03BA\u03C1\u03B9\u03BC\u03AD\u03BD\u03B7' : '';
     const approval = approved === '1' ? 'approved-application' : 'not-approved';
+    const navigate = useNavigate();
 
 
     return (
@@ -21,7 +23,7 @@ const ApplicationOptions = ({ applicationNumber, approved }) => {
                     συγκεκριμένη αίτηση, καθώς και τις αιτήσεις συνεργασίας και τα συμφωνητικά που έχουν υπογραφεί.</b>
             </p>
             <div className='application-option-buttons'>
-                <Button label='Αναζήτηση Επαγγελματία' />
+                <Button label='Αναζήτηση Επαγγελματία' onClick={() => navigate(Routes.SearchProfessional)} />
                 <Button label='Συναντήσεις' />
                 <Button label='Αιτήσεις συνεργασίας' />
                 <Button label='Συμφωνητικό' />

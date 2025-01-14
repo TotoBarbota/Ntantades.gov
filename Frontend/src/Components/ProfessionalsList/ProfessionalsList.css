@@ -1,0 +1,31 @@
+.professionals-list{
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+    .professionals-list .professional {
+        border: 2px solid #0065B3;
+        border-radius: 7px;
+        display: flex;
+        gap: 20rem;
+        margin: 15px 0 5px 0;
+    }
+
+    .professionals-list .professional .left-items .first-row{
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+    .professionals-list .professional .left-items .first-row h3{
+        margin: 0 15px 0 15px;
+    }
+
+    .professionals-list .professional .left-items .second-row {
+        margin-left: 10px;
+    }
+
+        .professionals-list .professional button {
+            background-color: #357EBD;
+            border: 2px solid #357EBD;
+        }

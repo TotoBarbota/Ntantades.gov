@@ -4,5 +4,6 @@ export const Routes = {
     Ntantades: 'ntantades',
     LoginVerification: '/loginVerification',
     AitisiSimmetoxis: '/aitisi-simmetoxis',
+    SearchProfessional: 'search-professional',
     Application: `/aitisi-simmetoxis/:applicationId`
 };
