@@ -20,7 +20,7 @@ function App() {
         <div className="App">
             <NavBar />
             <div className='main'>
-                <Breadcrumb />
+                <div className='main-breadcrumb'><Breadcrumb /></div>
                 <div className='first-section'>
                     <MainContent />
                     <UsefulPages />

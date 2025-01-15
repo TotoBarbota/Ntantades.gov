@@ -13,8 +13,6 @@ import './ProfessionalsList.css';
 import { Routes } from "../../routes";
 
 const ProfessionalsList = ({ users }) => {
-    const placeholderImage = "https://picsum.photos/100";
-    const imageUrl = placeholderImage;
     const navigate = useNavigate();
 
     return (
