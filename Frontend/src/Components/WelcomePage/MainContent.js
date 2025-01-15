@@ -1,7 +1,7 @@
 ﻿import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { Button } from 'primereact/button';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Routes } from './../../routes.js'
 
 import './MainContent.css'
@@ -9,6 +9,21 @@ import './MainContent.css'
 const MainContent = () => {
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+
+    const handleConnectForProfessionals = () => {
+
+        const returnUrl = Routes.SearchProfessional; // Replace with your desired return URL
+        navigate(`${Routes.Login}?returnUrl=${encodeURIComponent(returnUrl)}`); // Navigate to the login page with returnUrl as a query parameter
+    };
+
+    const handleConnectForParents = () => {
+
+        const returnUrl = Routes.AitisiSimmetoxis; // Replace with your desired return URL
+        console.log('return Url ', { returnUrl });
+        navigate(`${Routes.Login}?returnUrl=${encodeURIComponent(returnUrl)}`); // Navigate to the login page with returnUrl as a query parameter
+    };
 
     return (
         <div className="WelcomePage-MainContent">
@@ -42,7 +57,7 @@ const MainContent = () => {
             <div className='intro-buttons'>
                 <Button label='Εγγραφή στο μητρώο επιμελητών (επιμελητής/τρια)' onClick={() => navigate(Routes.Login)}> <IoIosArrowForward /> </Button>
                 <Button label='Αίτηση για την παροχή της υπηρεσίας φύλαξης και την
-                    επιλογή επιμελητή /τριας (ωφελούμενο πρόσωπο)' onClick={() => navigate(Routes.Login)}> <IoIosArrowForward /> </Button>
+                    επιλογή επιμελητή /τριας (ωφελούμενο πρόσωπο)' onClick={handleConnectForParents}> <IoIosArrowForward /> </Button>
             </div>
         </div>
     );

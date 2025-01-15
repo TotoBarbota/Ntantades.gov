@@ -1,28 +1,59 @@
-﻿import { useEffect, useState } from "react"
+﻿import { useEffect, useState } from "react";
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useNavigate } from "react-router-dom";
-import { Routes } from '../../routes'
+import { Routes } from '../../routes';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import './LoginPage.css';
 
 function LoginPage() {
-    const [showPassword, setShowPassword] = useState(false);
 
+    const location = useLocation();
+    const navigate = useNavigate();
+    const queryParams = new URLSearchParams(location.search);
+
+    useEffect(() => {
+        console.log(localStorage.getItem('loggedIn'));
+        if (localStorage.getItem('loggedIn') === 'true') {
+            const returnUrl = queryParams.get('returnUrl') || '/';
+            navigate(returnUrl);
+        }
+    }, []);
+
+    const usersForLogin = [
+        { name: "Thodoris Minaidis", username: 'tminaidis', password: 'Qwerty1234!' },
+        { name: "Argiro Zisi", username: 'azisi', password: 'Qwerty1234!' },
+        // Add more user data
+    ];
+
+
+    const [showPassword, setShowPassword] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
-    const navigate = useNavigate();
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        //await refetch(username, password);
-    }
+    const handleLogin = () => {
+        // Check if the user exists
+        const user = usersForLogin.find(
+            (user) => user.username === username && user.password === password
+        );
 
-    const handleKeyPress = (event) => {
-        if (event.key === 'Enter') {
-            // Trigger login when Enter key is pressed
-            handleSubmit(event);
+        if (user) {
+            setErrorMessage(''); // Clear error message
+            
+
+            const returnUrl = queryParams.get('returnUrl') || '/'; // Default to home if no returnUrl
+            console.log('return Url ', { returnUrl });
+
+            navigate(`${Routes.LoginVerification}?returnUrl=${encodeURIComponent(returnUrl)}&username=${encodeURIComponent(username)}&name=${encodeURIComponent(user.name)}`);
+        } else {
+            setErrorMessage('Λανθασμένο όνομα χρήστη ή κωδικός πρόσβασης.'); // Show error
         }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent form default behavior
+        handleLogin(); // Perform login validation
     };
 
     const togglePasswordVisibility = () => {
@@ -38,7 +69,6 @@ function LoginPage() {
 
     return (
         <div className="auth-container">
-
             <div className="auth-header">
                 <img src="/pictures/png/ggps.png" alt="General Secretariat" className="auth-logo" />
                 <img src="/pictures/png/ed.png" alt="Ministry Logo" className="auth-logo" />
@@ -56,24 +86,44 @@ function LoginPage() {
                     Παρακαλούμε εισάγετε τους κωδικούς σας στο <b>TaxisNet</b> για να
                     συνδεθείτε.
                 </p>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="username">Χρήστης:</label>
-                    <input type="text" id="username" name="username" />
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
 
                     <label htmlFor="password">Κωδικός:</label>
                     <div className="password-container">
-                        <input type={showPassword ? 'text' : 'password'} id="password" value={password} onChange={(e) =>
-                            setPassword(e.target.value)} onClick={handleKeyPress} />
-                        <button type="button" onClick={togglePasswordVisibility} className="togglePassword">
+                        <input
+                            type={showPassword ? 'text' : 'password'}
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <button
+                            type="button"
+                            onClick={togglePasswordVisibility}
+                            className="togglePassword"
+                        >
                             <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
                         </button>
                     </div>
 
+                    {errorMessage && <p className="error-message">{errorMessage}</p>}
+
                     <div className="auth-buttons">
-                        <button type="button" className="cancel-button" onClick={() => navigate(Routes.Home)}>
+                        <button
+                            type="button"
+                            className="cancel-button"
+                            onClick={() => navigate(-1)}
+                        >
                             Ακύρωση
                         </button>
-                        <button type="submit" className="submit-button" onClick={() => navigate(Routes.LoginVerification)}>
+                        <button type="submit" className="submit-button">
                             Σύνδεση
                         </button>
                     </div>

@@ -40,10 +40,16 @@ html {
         color: #555;
         margin: 0 10px 15px 10px;
     }
-    
-    .auth-container .auth-form {
-        display: grid;
+
+    .auth-container .auth-form .error-message,
+    .auth-container .error-message {
+        margin: 10px 0;
+        color: red;
     }
+
+        .auth-container .auth-form {
+            display: grid;
+        }
 
     .auth-container .auth-form label {
         display: block;

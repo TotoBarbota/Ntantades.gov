@@ -27,9 +27,18 @@
         margin-right: 5px;
     }
 
-        .NavBar .NavBar-nav .accessibilityMenu:hover {
-            background-color: #0048FF;
-        }
+    .NavBar .NavBar-nav .accessibility .accessibilityTitle {
+        opacity: 0; /* Start as transparent */
+        transition: opacity 0.3s ease;
+    }
+
+    .NavBar .NavBar-nav .accessibility:hover .accessibilityTitle {
+        opacity: 1; /* Fully visible on hover */
+    }
+
+    .NavBar .NavBar-nav .accessibilityMenu:hover {
+        background-color: #0048FF;
+    }
 
     .NavBar .NavBar-nav .logo {
         display: flex;

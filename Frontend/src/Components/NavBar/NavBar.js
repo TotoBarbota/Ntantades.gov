@@ -3,14 +3,14 @@ import { IoAccessibilitySharp } from "react-icons/io5";
 import { MdAccessibility } from 'react-icons/md';
 import { Routes } from '../../routes'
 
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from 'react-router-dom';
 import './NavBar.css';
 import { useState } from 'react';
 
 function NavBar() {
 
-    const [loggedIn, setLoggedIn] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleAccessibilityMenuTitle = () => {
         //unhide the accessibility menu title
@@ -20,6 +20,23 @@ function NavBar() {
     const handleMyName = () => {
         // unhide my name if i'm loggedIn
     }
+
+    const handleConnect = () => {
+
+        const returnUrl = location; // Replace with your desired return URL
+        navigate(Routes.Login); // Navigate to the login page with returnUrl as a query parameter
+    };
+
+    const handleLogout = () => {
+        // Clear localStorage and update loggedIn state
+        localStorage.removeItem('name');
+        localStorage.removeItem('loggedIn');
+        localStorage.removeItem('username');
+        navigate(Routes.Home); // Redirect to the homepage or another desired route
+    };
+
+    const loggedIn = localStorage.getItem('loggedIn') || 'false';
+    const name = localStorage.getItem('name') || '';
 
     return (
         <div class="NavBar">
@@ -32,8 +49,12 @@ function NavBar() {
                     <img src={'/pictures/png/govgrYpiresiaFrontidas.png'} alt="Logo" />
                 </div>
                 <div className='right-section'>
-                    <p className="name" >My Name</p>
-                    <Button className="connect" label="Connect" onClick={() => navigate(Routes.Login)} />
+                    <p className="name" >{name}</p>
+                    <Button
+                        className="connect"
+                        label={loggedIn === 'true' ? "Disconnect" : "Connect"}
+                        onClick={loggedIn === 'true' ? handleLogout : handleConnect}
+                    />
                 </div>
             </nav>
             <div class="line"></div>
