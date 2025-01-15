@@ -166,8 +166,16 @@ const Filters = ({ filters, setFilters }) => {
                         <Checkbox
                             inputId={municipality.code}
                             value={municipality.name}
-                            checked={filters.municipality?.includes(municipality.name)}
-                            onChange={() => handleCheckboxChange("municipality", municipality.name)}
+                            checked={filters.municipality.includes(municipality.name)}
+                            onChange={(e) => {
+                                const isChecked = e.checked;
+                                setFilters((prev) => ({
+                                    ...prev,
+                                    municipality: isChecked
+                                        ? [...prev.municipality, municipality.name]
+                                        : prev.municipality.filter((item) => item !== municipality.name),
+                                }));
+                            }}
                         />
                         <label htmlFor={municipality.code} style={{ marginLeft: "8px" }}>
                             {municipality.name}

@@ -22,16 +22,21 @@ const ProfessionalsList = ({ users }) => {
                             <div className='first-row'>
                                 <FaUserCircle />
                                 <h3>{user.name}</h3>
-                                <p>Age Group: {user.ageGroup}</p>
+                                <p>Ηλικιακή κατάταξη: {user.ageGroup}</p>
                             </div>
                             <div className='second-row'>
-                                <p>Experience: {user.experience}</p>
-                                <p>Sex: {user.sex}</p>
-                                <p>Hours per Week: ~{user.hoursPerWeek}</p>
+                                <div className='left-itms'>
+                                    <p>Εμπειρία: {user.experience}</p>
+                                    <p>Φύλο: {user.sex}</p>
+                                    <p>Ώρες την εβδομάδα: ~{user.hoursPerWeek}</p>
+                                </div>
+                                <div className='right-itms'>
+                                    <p>Περιγραφή: {user.description}</p>
+                                </div>
                             </div>
                         </div>
                         <div className='right-items'>
-                            <p>Municipality {user.hoursPerWeek}</p>
+                            <p>Δήμος: {user.municipality}</p>
                             <Button label='Κλεισε ραντεβού' />
                         </div>
                     </div>

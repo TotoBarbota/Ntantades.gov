@@ -1,7 +1,6 @@
 .search-professional .search-professional-breadcrumb {
-    justify-content: center;
     display: grid;
-    /*margin-left: -480px;*/
+    margin-left: 20px;
 }
 
 .search-professional .filters {
@@ -16,3 +15,19 @@
 
 .search-professional .right-section {
 }
+
+.search-professional .professional .second-row{
+    display: flex;
+}
+
+    .search-professional .professional .second-row .left-itms {
+        padding-right: 15px;
+        margin-bottom: 5px;
+        border-right: 2px solid #0065B3;
+        min-width: 200px;
+    }
+
+    .search-professional .professional .second-row .right-itms{
+        margin-left: 10px;
+        min-width: 460px;
+    }
