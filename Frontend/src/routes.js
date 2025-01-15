@@ -5,5 +5,6 @@ export const Routes = {
     LoginVerification: '/loginVerification',
     AitisiSimmetoxis: '/aitisi-simmetoxis',
     SearchProfessional: 'search-professional',
+    Professional: ':professionalId',
     Application: `/aitisi-simmetoxis/:applicationId`
 };

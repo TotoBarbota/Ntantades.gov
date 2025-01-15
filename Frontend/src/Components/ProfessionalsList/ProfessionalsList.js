@@ -5,14 +5,18 @@ import { InputNumber } from "primereact/inputnumber";
 import { Checkbox } from "primereact/checkbox";
 import { FaUserCircle } from "react-icons/fa";
 import { Button } from 'primereact/button';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 
 import './ProfessionalsList.css';
+import { Routes } from "../../routes";
 
 const ProfessionalsList = ({ users }) => {
     const placeholderImage = "https://picsum.photos/100";
     const imageUrl = placeholderImage;
+    const navigate = useNavigate();
+
     return (
         <div className="professionals-list">
             {users.length > 0 ? (
@@ -21,7 +25,7 @@ const ProfessionalsList = ({ users }) => {
                         <div className='left-items'>
                             <div className='first-row'>
                                 <FaUserCircle />
-                                <h3>{user.name}</h3>
+                                <h3 onClick={() => { console.log("user isssss ", user); navigate(`${user.id}`, { state: { user } }); }}>{user.name}</h3>
                                 <p>Ηλικιακή κατάταξη: {user.ageGroup}</p>
                             </div>
                             <div className='second-row'>

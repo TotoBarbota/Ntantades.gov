@@ -1,0 +1,83 @@
+.profile-card {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px auto;
+    max-width: 800px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+    .profile-card .profile-card-left {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-right: 16px;
+        border-right: 2px solid #0065B3;
+    }
+
+    .profile-card .profile-avatar svg {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 8px;
+    }
+
+    .profile-card .profile-details h3 {
+        margin: 0;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .profile-card .profile-details p {
+        margin: 4px 0;
+        color: #555;
+    }
+
+    .profile-card .profile-details a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .profile-card .profile-card-right {
+        width: 70%;
+        padding-left: 16px;
+    }
+
+        .profile-card .profile-card-right p {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .profile-card .profile-card-right .first-p {
+            padding-top: 38px;
+            margin-top: 15px;
+            border-top: 2px solid #0065B3;
+        }
+
+            .profile-card .profile-card-right ul {
+            list-style: none;
+            padding: 0;
+        }
+
+            .profile-card .profile-card-right ul li {
+                margin: 4px 0;
+                color: #555;
+            }
+
+    .profile-card .schedule-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+
+        .profile-card .schedule-button:hover {
+            background-color: #0056b3;
+        }

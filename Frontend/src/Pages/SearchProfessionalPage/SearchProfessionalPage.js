@@ -35,16 +35,65 @@ function SearchProfessionalPage() {
     // Mock data for ProfessionalList
     const users = [
         {
-            name: "John Doe", ageGroup: "25-45", experience: "1-3 έτη", sex: "Άντρας", hoursPerWeek: 20, municipality: "Αθήνα",
+            name: "John Doe", ageGroup: "25-45", age: "28", bio: "/path/to/Βιογραφικό.pdf", experience: "1-3 έτη", sex: "Άντρας", hoursPerWeek: 20, id: 1, municipality: "Αθήνα",
+            availability: [
+                { day: "Δευτέρα", hours: "Όλη μέρα" },
+                { day: "Τρίτη", hours: "Όλη μέρα" },
+                { day: "Τετάρτη", hours: "Όλη μέρα" },
+                { day: "Πέμπτη", hours: "Όλη μέρα" },
+                { day: "Παρασκευή", hours: "Όλη μέρα" },
+                { day: "Σάββατο", hours: "9 - 17" },
+                { day: "Κυριακή", hours: "12 - 5" },
+            ],
             description: "I' m John, I'm 28 years old. I went school in England but Greece is an unbelievable country to live. I'l leaving here 5 years. I know good Greek"
         },
         {
-            name: "Jane Smith", ageGroup: "18-25", experience: "0-1 έτη", sex: "Γυναίκα", hoursPerWeek: 15, municipality: "Θεσσαλονίκη",
-            description: "I' m John, I'm 28 years old. I'l leaving here 5 years. I know good Greek"
+            name: "Jane Smith", ageGroup: "45+", age: "48", bio: "/path/to/Βιογραφικό.pdf", experience: "0-1 έτη", sex: "Γυναίκα", hoursPerWeek: 15, id: 2, municipality: "Θεσσαλονίκη",
+            availability: [
+                { day: "Δευτέρα", hours: "Όλη μέρα" },
+                { day: "Τρίτη", hours: "Όλη μέρα" },
+                { day: "Τετάρτη", hours: "Όλη μέρα" },
+                { day: "Πέμπτη", hours: "Όλη μέρα" },
+                { day: "Παρασκευή", hours: "Όλη μέρα" },
+                { day: "Σάββατο", hours: "9 - 17" },
+                { day: "Κυριακή", hours: "12 - 5" },
+            ], description: "I' m John, I'm 28 years old. I'l leaving here 5 years. I know good Greek"
         },
         {
-            name: "Ζήση Πάρτζη", ageGroup: "18-25", experience: "0-1 έτη", sex: "Γυναίκα", hoursPerWeek: 25, municipality: "Αθήνα",
-            description: "I' m John, I'm 28 years old. I went school in England but Greece is an unbelievable country to live. I'l leaving here 5 years. I know good Greek. I' m John, I'm 28 years old. I went school in England but Greece is an unbelievable country to live. I'l leaving here 5 years. I know good Greek"
+            name: "Ζήση Πάρτζη", ageGroup: "25-45", age: "26", bio: "/path/to/Βιογραφικό.pdf", experience: "0-1 έτη", sex: "Γυναίκα", hoursPerWeek: 25, id: 3, municipality: "Αθήνα",
+            availability: [
+                { day: "Δευτέρα", hours: "Όλη μέρα" },
+                { day: "Τρίτη", hours: "Όλη μέρα" },
+                { day: "Τετάρτη", hours: "Όλη μέρα" },
+                { day: "Πέμπτη", hours: "Όλη μέρα" },
+                { day: "Παρασκευή", hours: "Όλη μέρα" },
+                { day: "Σάββατο", hours: "9 - 17" },
+                { day: "Κυριακή", hours: "12 - 5" },
+            ], description: "I' m John, I'm 28 years old. I went school in England but Greece is an unbelievable country to live. I'l leaving here 5 years. I know good Greek. I' m John, I'm 28 years old. I went school in England but Greece is an unbelievable country to live. I'l leaving here 5 years. I know good Greek"
+        },
+        {
+            name: "Ζήση Πόπη", ageGroup: "18-25", age: "21", bio: "/path/to/Βιογραφικό.pdf", experience: "0-1 έτη", sex: "Γυναίκα", hoursPerWeek: 25, id: 4, municipality: "Αθήνα",
+            availability: [
+                { day: "Δευτέρα", hours: "Όλη μέρα" },
+                { day: "Τρίτη", hours: "Όλη μέρα" },
+                { day: "Τετάρτη", hours: "Όλη μέρα" },
+                { day: "Πέμπτη", hours: "Όλη μέρα" },
+                { day: "Παρασκευή", hours: "Όλη μέρα" },
+                { day: "Σάββατο", hours: "9 - 17" },
+                { day: "Κυριακή", hours: "12 - 5" },
+            ], description: "I' m John, I'm 28 years old. I went school in England but Greece is an unbelievable country to live. I'l leaving here 5 years. I know good Greek. I' m John, I'm 28 years old. I went school in England but Greece is an unbelievable country to live. I'l leaving here 5 years. I know good Greek"
+        },
+        {
+            name: "Ζήση Άρτζυ", ageGroup: "18-25", age: "21", bio: "/path/to/Βιογραφικό.pdf", experience: "0-1 έτη", sex: "Γυναίκα", hoursPerWeek: 25, id: 5, municipality: "Αθήνα",
+            availability: [
+                { day: "Δευτέρα", hours: "Όλη μέρα" },
+                { day: "Τρίτη", hours: "Όλη μέρα" },
+                { day: "Τετάρτη", hours: "Όλη μέρα" },
+                { day: "Πέμπτη", hours: "Όλη μέρα" },
+                { day: "Παρασκευή", hours: "Όλη μέρα" },
+                { day: "Σάββατο", hours: "9 - 17" },
+                { day: "Κυριακή", hours: "12 - 5" },
+            ], description: "I' m John, I'm 28 years old. I went school in England but Greece is an unbelievable country to live. I'l leaving here 5 years. I know good Greek. I' m John, I'm 28 years old. I went school in England but Greece is an unbelievable country to live. I'l leaving here 5 years. I know good Greek"
         },
         // Add more user data
     ];
@@ -82,7 +131,7 @@ function SearchProfessionalPage() {
                 </div>
                 <div className='right-section'>
                 <div className='search-professional-breadcrumb'> <Breadcrumb /> </div>
-                    <ProfessionalsList users={filteredUsers}     />
+                    <ProfessionalsList users={filteredUsers}/>
             </div>
             </div>
             <Footer />

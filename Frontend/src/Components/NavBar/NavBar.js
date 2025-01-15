@@ -12,15 +12,6 @@ function NavBar() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const handleAccessibilityMenuTitle = () => {
-        //unhide the accessibility menu title
-
-    }
-
-    const handleMyName = () => {
-        // unhide my name if i'm loggedIn
-    }
-
     const handleConnect = () => {
 
         const returnUrl = location; // Replace with your desired return URL

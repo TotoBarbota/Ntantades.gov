@@ -7,7 +7,7 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 
 import App from './Pages/WelcomePage/App';
-
+import ProfessionalPage from './Pages/ProfessionalPage/ProfessionalPage'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Routes } from './routes';
 import LoginPage from './Pages/Login/LoginPage';
@@ -25,6 +25,7 @@ const router = createBrowserRouter([
     { path: Routes.AitisiSimmetoxis, element: <AitisiSimmetoxisPage /> },
     { path: Routes.Application, element: <ApplicationPage /> },
     { path: `${Routes.Application}/${Routes.SearchProfessional}`, element: <SearchProfessionalPage /> },
+    { path: `${Routes.Application}/${Routes.SearchProfessional}/${Routes.Professional}`, element: <ProfessionalPage /> },
     { path: "*", element: <PageNotFound /> }
 ]);
 
