@@ -8,7 +8,6 @@
         border: 2px solid #0065B3;
         border-radius: 7px;
         display: flex;
-        gap: 13rem;
         margin: 15px 0 5px 0;
     }
 
@@ -37,12 +36,33 @@
         }
 
         .professionals-list .professional .right-items {
-            padding-right: 20px;
-            justify-items: center;
-            align-content: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            width: auto; 
+            margin-left: auto;
+            padding-right: 15px;
         }
+
+
 
             .professionals-list .professional .right-items p {
                 margin: 0;
-                padding-bottom: 10px;
+                font-size: 14px;
             }
+
+            .professionals-list .professional .right-items button {
+                background-color: #357EBD;
+                border: 2px solid #357EBD;
+                color: white;
+                margin: 8px 15px;
+                cursor: pointer;
+                border-radius: 4px;
+                margin-top: 10px; 
+                width: 185px;
+            }
+
+                .professionals-list .professional .right-items button:hover {
+                    background-color: #245B9B;
+                }

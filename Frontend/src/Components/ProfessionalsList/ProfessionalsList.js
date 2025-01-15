@@ -8,12 +8,25 @@ import { Button } from 'primereact/button';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 
-
 import './ProfessionalsList.css';
 import { Routes } from "../../routes";
+import MeetingModal from "../MeetingModal/MeetingModal";
 
 const ProfessionalsList = ({ users }) => {
     const navigate = useNavigate();
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(null);
+
+    const handleOpenModal = (user) => {
+        setSelectedUser(user);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedUser(null);
+        setIsModalOpen(false);
+    };
 
     return (
         <div className="professionals-list">
@@ -38,14 +51,18 @@ const ProfessionalsList = ({ users }) => {
                             </div>
                         </div>
                         <div className='right-items'>
-                            <p>Δήμος: {user.municipality}</p>
-                            <Button label='Κλεισε ραντεβού' />
+                                <p>Δήμος: {user.municipality}</p>
+                                <Button label='Κλεισε ραντεβού' onClick={() => handleOpenModal(user)} />
                         </div>
                     </div>
                 ))
             ) : (
                 <p>No professionals match the selected filters.</p>
             )}
+            <MeetingModal
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+            />
         </div>
     );
 };
