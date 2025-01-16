@@ -9,7 +9,6 @@ import "./MainContent.css";
 
 const MainContent = () => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleConnectForProfessionals = () => {
     const returnUrl = Routes.SearchProfessional; // Replace with your desired return URL
@@ -84,8 +83,11 @@ const MainContent = () => {
         <Button
           label="Εγγραφή στο μητρώο επιμελητών (επιμελητής/τρια)"
           onClick={() => {
-            if (!authContext.isAuthenticated) navigate(Routes.Login);
-            else navigate(Routes.Ntantades);
+            if (!authContext.isAuthenticated) {
+              navigate(Routes.Login, {
+                state: { returnURL: Routes.Ntantades },
+              });
+            } else navigate(Routes.Ntantades);
           }}
         >
           {" "}
@@ -94,7 +96,13 @@ const MainContent = () => {
         <Button
           label="Αίτηση για την παροχή της υπηρεσίας φύλαξης και την
                     επιλογή επιμελητή /τριας (ωφελούμενο πρόσωπο)"
-          onClick={handleConnectForParents}
+          onClick={() => {
+            if (!authContext.isAuthenticated) {
+              navigate(Routes.Login, {
+                state: { returnURL: Routes.AitisiSimmetoxis },
+              });
+            } else navigate(Routes.AitisiSimmetoxis);
+          }}
         >
           {" "}
           <IoIosArrowForward />{" "}

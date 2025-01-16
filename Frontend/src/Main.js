@@ -2,18 +2,20 @@ import App from "./Pages/WelcomePage/App";
 import NavBar from "./Components/NavBar/NavBar";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Routes } from "./routes";
-import LoginPage from "./Pages/Login/LoginPage";
-import PageNotFound from "./Pages/PageNotFound/PageNotFound";
-import LoginVerificationPage from "./Pages/Login/LoginVerificationPage";
-import ProtectedRoute from "./contexts/ProtectedRoute";
-import AuthProvider from "./contexts/AuthContext";
-import RegisterPage from "./Pages/Login/RegisterPage";
-
+import { Routes } from "./routes.js";
+import LoginPage from "./Pages/Login/LoginPage.js";
+import LoginVerificationPage from "./Pages/Login/LoginVerificationPage.js";
+import RegisterPage from "./Pages/Login/RegisterPage.js";
+import ProtectedRoute from "./contexts/ProtectedRoute.js";
+import AitisiSimmetoxisPage from "./Pages/AitisiSimmetoxis/AitisiSimmetoxisPage.js";
+import MeetingsPage from "./Pages/MeetingsPage/MeetingsPage.js";
+import AuthProvider from "./contexts/AuthContext.js";
+import ApplicationPage from "./Pages/ApplicationPage/ApplicationPage.js";
+import SearchProfessionalPage from "./Pages/SearchProfessionalPage/SearchProfessionalPage.js";
+import ProfessionalPage from "./Pages/ProfessionalPage/ProfessionalPage.js";
+import PageNotFound from "./Pages/PageNotFound/PageNotFound.js";
 const router = createBrowserRouter([
   { path: Routes.Home, element: <App /> },
-  { path: Routes.Login, element: <LoginPage /> },
-  { path: Routes.LoginVerification, element: <LoginVerificationPage /> },
   {
     path: Routes.Ntantades,
     element: (
@@ -22,7 +24,42 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
+  { path: Routes.Login, element: <LoginPage /> },
+  { path: Routes.LoginVerification, element: <LoginVerificationPage /> },
   { path: Routes.Register, element: <RegisterPage /> },
+  { path: Routes.Application, element: <ApplicationPage /> },
+  {
+    path: Routes.AitisiSimmetoxis,
+    element: (
+      <ProtectedRoute>
+        <AitisiSimmetoxisPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: `${Routes.Application}/${Routes.SearchProfessional}`,
+    element: (
+      <ProtectedRoute>
+        <SearchProfessionalPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: `${Routes.Application}/${Routes.SearchProfessional}/${Routes.Professional}`,
+    element: (
+      <ProtectedRoute>
+        <ProfessionalPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: `${Routes.Application}/${Routes.Meeting}`,
+    element: (
+      <ProtectedRoute>
+        <MeetingsPage />
+      </ProtectedRoute>
+    ),
+  },
   { path: "*", element: <PageNotFound /> },
 ]);
 

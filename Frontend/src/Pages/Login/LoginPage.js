@@ -11,57 +11,29 @@ function LoginPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
+  const authContext = useAuth();
+  const { returnURL } = location.state || "/";
+  // console.log("Location state: ", location.state); // Debugging line
+  // console.log("Return URL: ", returnURL); // Debugging line
 
-  useEffect(() => {
-    console.log(localStorage.getItem("loggedIn"));
-    if (localStorage.getItem("loggedIn") === "true") {
-      const returnUrl = queryParams.get("returnUrl") || "/";
-      navigate(returnUrl);
-    }
-  }, []);
-
-  const usersForLogin = [
-    {
-      name: "Thodoris Minaidis",
-      username: "tminaidis",
-      password: "Qwerty1234!",
-    },
-    { name: "Argiro Zisi", username: "azisi", password: "Qwerty1234!" },
-    // Add more user data
-  ];
-
-  const [showPassword, setShowPassword] = useState(false);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    // Check if the user exists
-    const user = usersForLogin.find(
-      (user) => user.username === username && user.password === password
-    );
-
-    if (user) {
-      setErrorMessage(""); // Clear error message
-
-      const returnUrl = queryParams.get("returnUrl") || "/"; // Default to home if no returnUrl
-      console.log("return Url ", { returnUrl });
-
-      navigate(
-        `${Routes.LoginVerification}?returnUrl=${encodeURIComponent(
-          returnUrl
-        )}&username=${encodeURIComponent(username)}&name=${encodeURIComponent(
-          user.name
-        )}`
-      );
+  const handleSubmit = async (e) => {
+    if (await authContext.signIn(email, password)) {
+      console.log("return Url ", `${returnURL}`);
+      console.log(location.state);
+      if (returnURL === undefined || returnURL === null || returnURL === "/") {
+        console.log("return was null");
+        navigate(Routes.Home);
+      } else {
+        navigate(`/${returnURL}`);
+      }
     } else {
-      setErrorMessage("Λανθασμένο όνομα χρήστη ή κωδικός πρόσβασης."); // Show error
+      setErrorMessage("Invalid username or password."); // Handle login failure
     }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent form default behavior
-    handleLogin(); // Perform login validation
   };
 
   const togglePasswordVisibility = () => {
@@ -105,7 +77,7 @@ function LoginPage() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            checkSumbit({ email, password });
+            handleSubmit({ email, password });
           }}
         >
           <label htmlFor="email">Χρήστης:</label>
@@ -143,14 +115,16 @@ function LoginPage() {
             <button
               type="button"
               className="cancel-button"
-              onClick={() => navigate(Routes.Home.path)}
+              onClick={() =>
+                navigate(location.state?.from?.pathname || Routes.Home)
+              }
             >
               Ακύρωση
             </button>
             <button
               type="submit"
               className="submit-button"
-              onClick={() => checkSumbit({ email, password })}
+              onClick={() => handleSubmit()}
             >
               Σύνδεση
             </button>
