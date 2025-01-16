@@ -1,8 +1,4 @@
-﻿import { useEffect, useState } from "react"
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useParams } from "react-router-dom";
-import { Routes } from '../../routes'
+﻿import { useParams } from "react-router-dom";
 import React from "react";
 
 import NavBar from "../../Components/NavBar/NavBar";

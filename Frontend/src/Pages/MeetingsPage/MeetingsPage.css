@@ -1,0 +1,5 @@
+.meetings-page-main-container{
+    margin: 15px;
+    display: grid;
+    gap: 2rem;
+}

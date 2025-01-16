@@ -1,15 +1,10 @@
 ﻿import React, { useState } from "react";
-import { Dropdown } from "primereact/dropdown";
-import { MultiSelect } from "primereact/multiselect";
-import { InputNumber } from "primereact/inputnumber";
-import { Checkbox } from "primereact/checkbox";
 import { FaUserCircle } from "react-icons/fa";
 import { Button } from 'primereact/button';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 
 import './ProfessionalsList.css';
-import { Routes } from "../../routes";
 import MeetingModal from "../MeetingModal/MeetingModal";
 
 const ProfessionalsList = ({ users }) => {

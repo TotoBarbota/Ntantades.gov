@@ -1,0 +1,53 @@
+﻿.appointment-card {
+    border: 1px solid #ccc;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+    .appointment-card .card-status {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .appointment-card .card-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .appointment-card .person-info {
+        display: flex;
+        align-items: center;
+    }
+
+    .appointment-card .person-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .appointment-card .card-actions .action-button {
+        margin-left: 5px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .appointment-card .card-actions .action-button.Αποδοχή {
+            background-color: green;
+            color: white;
+        }
+
+        .appointment-card .card-actions .action-button.Αλλαγή {
+            background-color: orange;
+            color: white;
+        }
+
+        .appointment-card .card-actions .action-button.Ακύρωση {
+            background-color: red;
+            color: white;
+        }

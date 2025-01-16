@@ -20,14 +20,6 @@ function SearchProfessionalPage() {
         municipality: [], // Initialize as an empty array
     });
 
-
-    const [selectedAgeGroups, setSelectedAgeGroups] = useState([]);
-    const [selectedPreviousJobsNumb, setSelectedPreviousJobsNumb] = useState([]);
-    const [sex, setSex] = useState([]);
-    const [minHours, setMinHours] = useState(null);
-    const [maxHours, setMaxHours] = useState(null);
-    const [municipality, setMunicipality] = useState([]);
-
     // Mock data for ProfessionalList
     const users = [
         {
