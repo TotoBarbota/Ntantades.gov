@@ -1,0 +1,68 @@
+.professionals-list{
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-bottom: 100px;
+}
+
+    .professionals-list .professional {
+        border: 2px solid #0065B3;
+        border-radius: 7px;
+        display: flex;
+        margin: 15px 0 5px 0;
+    }
+
+    .professionals-list .professional .left-items .first-row{
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+    .professionals-list .professional .left-items .first-row h3{
+        margin: 0 15px 0 15px;
+        cursor: pointer;
+    }
+    
+    .professionals-list .professional .left-items .first-row h3:hover{
+        border-bottom: 2px solid black;
+    }
+
+    .professionals-list .professional .left-items .second-row {
+        margin-left: 10px;
+    }
+
+        .professionals-list .professional button {
+            background-color: #357EBD;
+            border: 2px solid #357EBD;
+        }
+
+        .professionals-list .professional .right-items {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            width: auto; 
+            margin-left: auto;
+            padding-right: 15px;
+        }
+
+
+
+            .professionals-list .professional .right-items p {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            .professionals-list .professional .right-items button {
+                background-color: #357EBD;
+                border: 2px solid #357EBD;
+                color: white;
+                margin: 8px 15px;
+                cursor: pointer;
+                border-radius: 4px;
+                margin-top: 10px; 
+                width: 185px;
+            }
+
+                .professionals-list .professional .right-items button:hover {
+                    background-color: #245B9B;
+                }

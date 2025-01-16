@@ -2,32 +2,67 @@
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAuth } from "../../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
 import { Routes } from "../../routes";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import "./LoginPage.css";
 
 function LoginPage() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [authenticationFailed, setAuthenticationFailed] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const authContext = useAuth();
-
-  async function checkSumbit(values) {
-    console.log(values);
-    console.log(authContext);
-    if (await authContext.signIn(values.email, values.password)) {
-      console.log("success");
-      setAuthenticationFailed(false);
-      navigate(Routes.Home);
-    } else {
-      console.log("failed");
-      setAuthenticationFailed(true);
-    }
-  }
-
+  const location = useLocation();
   const navigate = useNavigate();
+  const queryParams = new URLSearchParams(location.search);
+
+  useEffect(() => {
+    console.log(localStorage.getItem("loggedIn"));
+    if (localStorage.getItem("loggedIn") === "true") {
+      const returnUrl = queryParams.get("returnUrl") || "/";
+      navigate(returnUrl);
+    }
+  }, []);
+
+  const usersForLogin = [
+    {
+      name: "Thodoris Minaidis",
+      username: "tminaidis",
+      password: "Qwerty1234!",
+    },
+    { name: "Argiro Zisi", username: "azisi", password: "Qwerty1234!" },
+    // Add more user data
+  ];
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleLogin = () => {
+    // Check if the user exists
+    const user = usersForLogin.find(
+      (user) => user.username === username && user.password === password
+    );
+
+    if (user) {
+      setErrorMessage(""); // Clear error message
+
+      const returnUrl = queryParams.get("returnUrl") || "/"; // Default to home if no returnUrl
+      console.log("return Url ", { returnUrl });
+
+      navigate(
+        `${Routes.LoginVerification}?returnUrl=${encodeURIComponent(
+          returnUrl
+        )}&username=${encodeURIComponent(username)}&name=${encodeURIComponent(
+          user.name
+        )}`
+      );
+    } else {
+      setErrorMessage("Λανθασμένο όνομα χρήστη ή κωδικός πρόσβασης."); // Show error
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent form default behavior
+    handleLogin(); // Perform login validation
+  };
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);

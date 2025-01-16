@@ -9,6 +9,18 @@ import "./MainContent.css";
 
 const MainContent = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleConnectForProfessionals = () => {
+    const returnUrl = Routes.SearchProfessional; // Replace with your desired return URL
+    navigate(`${Routes.Login}?returnUrl=${encodeURIComponent(returnUrl)}`); // Navigate to the login page with returnUrl as a query parameter
+  };
+
+  const handleConnectForParents = () => {
+    const returnUrl = Routes.AitisiSimmetoxis; // Replace with your desired return URL
+    console.log("return Url ", { returnUrl });
+    navigate(`${Routes.Login}?returnUrl=${encodeURIComponent(returnUrl)}`); // Navigate to the login page with returnUrl as a query parameter
+  };
   const authContext = useAuth();
 
   return (
@@ -82,7 +94,7 @@ const MainContent = () => {
         <Button
           label="Αίτηση για την παροχή της υπηρεσίας φύλαξης και την
                     επιλογή επιμελητή /τριας (ωφελούμενο πρόσωπο)"
-          onClick={() => navigate(Routes.Login)}
+          onClick={handleConnectForParents}
         >
           {" "}
           <IoIosArrowForward />{" "}

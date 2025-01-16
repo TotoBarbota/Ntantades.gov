@@ -1,0 +1,44 @@
+.application-options-container{
+    display:  grid;
+    justify-items: center;
+}
+
+    .application-options-container .application-number {
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+
+    .application-options-container .approved-application {
+        padding: 5px 10px;
+        background-color: #80B981;
+        border-radius: 5px;
+        color: white;
+    }
+
+    .application-options-container .application-option-buttons {
+        margin-top: 50px;
+        margin-bottom: 150px;
+        display: flex;
+        gap: 5px;
+
+    }
+
+        .application-options-container .application-option-buttons button {
+            font-family: "Roboto", serif;
+            font-weight: 200;
+            font-style: normal;
+            background-color: #00703C;
+            border: 1px solid #00703C;
+            padding: 5px 10px;
+            width: 170px;
+        }
+
+            .application-options-container .application-option-buttons button:hover {
+                background-color: #004726;
+            }
+
+            .application-options-container .application-option-buttons button:focus {
+                background-color: #004726;
+                outline: 2px solid green;
+                outline-offset: 2px;
+            }

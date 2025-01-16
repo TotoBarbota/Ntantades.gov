@@ -2,23 +2,59 @@
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'primereact/button';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Routes } from '../../routes'
 
 import './LoginPage.css';
 
 function LoginVerificationPage() {
     const [showPassword, setShowPassword] = useState(false);
+    const location = useLocation();
 
-    const [username, setUsername] = useState('');
+    const passwords = [
+        { username: 'tminaidis', passcode: '1234' },
+        { username: 'azisi', passcode: '4321' }
+    ];
+
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
 
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        //await refetch(username, password);
+
+        const queryParams = new URLSearchParams(location.search);
+        const username = queryParams.get('username') || '/';
+        const name = queryParams.get('name') || '/';
+        const returnUrl = queryParams.get('returnUrl') || '/';
+        console.log('username is ', { username });
+
+        const code = passwords.find(
+            (code) => code.username === username && code.passcode === password
+        );
+
+        if (code) {
+            setErrorMessage(''); // Clear error message
+            const queryParams = new URLSearchParams(location.search);
+            const returnUrl = queryParams.get('returnUrl') || '/'; // Default to home if no returnUrl
+            console.log('return Url ', { returnUrl });
+            localStorage.setItem('loggedIn', 'true');
+            localStorage.setItem('username', username);
+            localStorage.setItem('name', name);
+            navigate(returnUrl);
+        } else {
+            setErrorMessage('Λανθασμένος κωδικός πρόσβασης.'); // Show error
+        }
+
     }
+
+    const handleCancel = async (e) => {
+        e.preventDefault();
+        navigate(-2); // Redirect after login
+    }
+
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
@@ -66,19 +102,21 @@ function LoginVerificationPage() {
 
                     <div className="auth-buttons-verification">
                         <div className="first-row">
-                            <Button type="button" className="submit-button-verification">
+                            <Button type="button" className="submit-button-verification" onClick={handleSubmit}>
                                 Επιβεβαίωση
                             </Button>
                             <Button type="submit" className="submit-button-verification">
                                 Επαναποστολη κωδικου
                             </Button>
                         </div>
-                        <Button type="submit" className="submit-button-verification" onClick={() => navigate(Routes.Home)}>
+                        <Button type="submit" className="submit-button-verification" onClick={handleCancel}>
                             Ακύρωση
                         </Button>
                     </div>
                 </form>
             </div>
+
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
 
             <footer className="auth-footer">
                 <p>
