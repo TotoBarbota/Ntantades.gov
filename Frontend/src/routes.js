@@ -7,5 +7,6 @@ export const Routes = {
     SearchProfessional: 'search-professional',
     Professional: ':professionalId',
     Application: `/aitisi-simmetoxis/:applicationId`,
-    Meeting: 'sinantiseis'
+    Meeting: 'sinantiseis',
+    ApplicationsWithProfessionals: 'aitiseis',
 };
