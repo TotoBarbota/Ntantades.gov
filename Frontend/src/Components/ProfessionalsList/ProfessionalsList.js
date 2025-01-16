@@ -14,6 +14,7 @@ import MeetingModal from "../MeetingModal/MeetingModal";
 
 const ProfessionalsList = ({ users }) => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
@@ -62,7 +63,10 @@ const ProfessionalsList = ({ users }) => {
             <MeetingModal
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}
+                returnUrl={location.pathname}
+                selectedUser={selectedUser}
             />
+
         </div>
     );
 };

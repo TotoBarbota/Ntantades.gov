@@ -1,16 +1,10 @@
 ﻿import React, { useState } from "react";
-import { Dropdown } from "primereact/dropdown";
-import { MultiSelect } from "primereact/multiselect";
-import { InputNumber } from "primereact/inputnumber";
-import { Checkbox } from "primereact/checkbox";
 import { FaUserCircle } from "react-icons/fa";
-import { Button } from 'primereact/button';
-
-
 
 import './ProfileCard.css';
 
-const ProfileCard = ({ user }) => {
+const ProfileCard = ({ user, isOpen, onClose, handleOpenModal }) => {
+
     if (!user) {
         return <p>No user data available!</p>;
     }
@@ -36,7 +30,7 @@ const ProfileCard = ({ user }) => {
                 </div>
             </div>
             <div className="profile-card-right">
-                <button className="schedule-button">
+                <button className="schedule-button" onClick={() => handleOpenModal(user)}>
                     Κλείσε ραντεβού
                 </button>
                 <p className='first-p'><strong>Περιγραφή:</strong> {user.description}</p>

@@ -16,6 +16,7 @@ import LoginVerificationPage from './Pages/Login/LoginVerificationPage';
 import AitisiSimmetoxisPage from './Pages/aitisiSimmetoxis/aitisiSimmetoxisPage';
 import ApplicationPage from './Pages/ApplicationPage/ApplicationPage';
 import SearchProfessionalPage from './Pages/SearchProfessionalPage/SearchProfessionalPage';
+import MeetingsPage from './Pages/MeetingsPage/MeetingsPage';
 
 const router = createBrowserRouter([
     { path: Routes.Home, element: <App /> },
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
     { path: Routes.Application, element: <ApplicationPage /> },
     { path: `${Routes.Application}/${Routes.SearchProfessional}`, element: <SearchProfessionalPage /> },
     { path: `${Routes.Application}/${Routes.SearchProfessional}/${Routes.Professional}`, element: <ProfessionalPage /> },
+    { path: `${Routes.Application}/${Routes.Meeting}`, element: <MeetingsPage /> },
     { path: "*", element: <PageNotFound /> }
 ]);
 

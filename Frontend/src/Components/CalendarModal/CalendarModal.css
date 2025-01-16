@@ -45,9 +45,21 @@
     .calendar-modal-overlay .close-button {
         background: #f44336;
         color: white;
+        margin-top: 0;
     }
 
-    .calendar-modal-overlay .confirm-button {
-        background: #4caf50;
-        color: white;
+        .calendar-modal-overlay .close-button:hover {
+            background: #f44336;
+            background-color: brown
+        }
+
+        .calendar-modal-overlay .confirm-button {
+            background: #4caf50;
+            color: white;
+        }
+
+    .calendar-modal-overlay .error-message {
+        color: red;
+        font-size: 0.9rem;
+        margin-top: 10px;
     }

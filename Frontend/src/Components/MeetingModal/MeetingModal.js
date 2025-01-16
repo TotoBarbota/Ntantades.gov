@@ -2,7 +2,7 @@
 import './MeetingModal.css'; // Add styles for the modal
 import CalendarModal from "../CalendarModal/CalendarModal";
 
-const MeetingModal = ({ isOpen, onClose, selectedUser }) => {
+const MeetingModal = ({ isOpen, onClose, returnUrl, selectedUser }) => {
     const [meetingType, setMeetingType] = useState("");
     const [place, setPlace] = useState(""); 
     const [location, setLocation] = useState(""); 
@@ -91,6 +91,8 @@ const MeetingModal = ({ isOpen, onClose, selectedUser }) => {
                 <CalendarModal
                     isOpen={isCalendarOpen}
                     onClose={() => setIsCalendarOpen(false)} // Close calendar modal
+                    returnUrl={returnUrl}
+                    closeAll={onClose}
                     selectedUser={selectedUser} // Pass selected user
                 />
             )}

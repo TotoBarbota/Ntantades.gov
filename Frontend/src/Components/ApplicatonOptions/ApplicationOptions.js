@@ -24,7 +24,7 @@ const ApplicationOptions = ({ applicationNumber, approved }) => {
             </p>
             <div className='application-option-buttons'>
                 <Button label='Αναζήτηση Επαγγελματία' onClick={() => navigate(Routes.SearchProfessional)} />
-                <Button label='Συναντήσεις' />
+                <Button label='Συναντήσεις' onClick={() => navigate(Routes.Meeting)} />
                 <Button label='Αιτήσεις συνεργασίας' />
                 <Button label='Συμφωνητικό' />
                 <Button label='Πιστοποίηση εργασίας / Αποστολή voucher' />

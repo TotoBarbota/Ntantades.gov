@@ -6,5 +6,6 @@ export const Routes = {
     AitisiSimmetoxis: '/aitisi-simmetoxis',
     SearchProfessional: 'search-professional',
     Professional: ':professionalId',
-    Application: `/aitisi-simmetoxis/:applicationId`
+    Application: `/aitisi-simmetoxis/:applicationId`,
+    Meeting: 'sinantiseis'
 };
