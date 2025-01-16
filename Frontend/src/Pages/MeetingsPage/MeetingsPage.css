@@ -3,3 +3,7 @@
     display: grid;
     gap: 2rem;
 }
+
+.meetings-page-main-container .appointment-cards{
+    margin-bottom: 100px;
+}

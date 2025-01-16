@@ -18,6 +18,7 @@ function MeetingsPage() {
             date: "23-07-2024, 18:30",
             location: "Google Meet (http://gmeetlink)",
             actions: ["Αποδοχή", "Αλλαγή ημερομηνίας", "Απόρριψη"],
+            statusNum: 'request', // aitima allagis oras
         },
         {
             id: 2,
@@ -26,6 +27,8 @@ function MeetingsPage() {
             date: "23-07-2024, 18:30",
             location: "Google Meet (http://gmeetlink)",
             actions: ["Αλλαγή ημερομηνίας", "Ακύρωση"],
+            statusNum: 'wait', // anamoni apantisis
+
         },
         {
             id: 3,
@@ -34,6 +37,8 @@ function MeetingsPage() {
             date: "23-07-2024, 18:30",
             location: "Google Meet (http://gmeetlink)",
             actions: ["Αλλαγή ημερομηνίας", "Ακύρωση"],
+            statusNum: "schedule", // programmatismeni
+
         },
         {
             id: 4,
@@ -42,8 +47,29 @@ function MeetingsPage() {
             date: "23-07-2024, 18:30",
             location: "Google Meet (http://gmeetlink)",
             actions: ["Αίτημα συνεργασίας", "Αρχειοθέτηση"],
+            statusNum: "completed", // olokliromeni
+
+        },
+        {
+            id: 5,
+            status: "Άκυρη",
+            person: "Θοδωρής Μηνιάδης",
+            date: "23-07-2024, 18:30",
+            location: "Google Meet (http://gmeetlink)",
+            actions: [],
+            statusNum: "closed", // olokliromeni
+
         },
     ];
+
+    const filteredAppointments = appointments.filter((appointment) => {
+        if (activeTab === "Τρέχοντα") {
+            return appointment.statusNum !== "closed"; // Exclude "Άκυρη"
+        } else if (activeTab === "Ακυρωμένα") {
+            return appointment.statusNum === "closed"; // Include only "Άκυρη"
+        }
+        return false;
+    });
     
     const useDocumentTitle = (title) => {
         useEffect(() => {
@@ -60,14 +86,14 @@ function MeetingsPage() {
                 <div>
                     <Tabs
                         tabs={[
-                            { label: "Τρέχοντα", count: 5 },
-                            { label: "Ακυρωμένα", count: 2 },
+                            { label: "Τρέχοντα", count: appointments.filter(app => app.statusNum !== "closed").length },
+                            { label: "Ακυρωμένα", count: appointments.filter(app => app.statusNum === "closed").length },
                         ]}
                         activeTab={activeTab}
                         onTabClick={(tab) => setActiveTab(tab)}
                     />
                     <div className="appointment-cards">
-                        {appointments.map((appointment) => (
+                        {filteredAppointments.map((appointment) => (
                             <AppointmentCard key={appointment.id} data={appointment} />
                         ))}
                     </div>

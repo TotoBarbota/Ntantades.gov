@@ -2,11 +2,11 @@ import React from "react";
 import "./AppointmentCard.css";
 
 const AppointmentCard = ({ data }) => {
-    const { status, person, date, location, actions } = data;
+    const { status, person, date, location, actions, statusNum } = data;
 
     return (
-        <div className="appointment-card">
-            <div className="card-status">{status}</div>
+        <div className={`appointment-card ${statusNum}`}>
+            <div className='card-status'>{status}</div>
             <div className="card-content">
                 <div className="person-info">
                     <img
@@ -14,7 +14,7 @@ const AppointmentCard = ({ data }) => {
                         alt="Person"
                         className="person-avatar"
                     />
-                    <div>
+                    <div className='basic-info'>
                         <p>{person}</p>
                         <p>{date}</p>
                         <p>{location}</p>
