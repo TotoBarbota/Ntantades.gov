@@ -9,4 +9,6 @@ export const Routes = {
     Application: `/aitisi-simmetoxis/:applicationId`,
     Meeting: 'sinantiseis',
     ApplicationsWithProfessionals: 'aitiseis',
+    Agreement: 'simfonitika',
+    WorkCertification: 'pistopoiitiko-ergasias'
 };

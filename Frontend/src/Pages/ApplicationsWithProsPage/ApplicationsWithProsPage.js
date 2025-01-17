@@ -16,7 +16,7 @@ function ApplicationsWithProsPage() {
             person: "Θοδωρής Μηνιάδης",
             age: 19,
             municipality: "Αθήνα",
-            actions: [],
+            actions: ["Ανασκόπηση"],
             status: 'not-submitted', 
         },
         {
@@ -24,7 +24,7 @@ function ApplicationsWithProsPage() {
             person: "Θοδωρής Μηνιάδης",
             age: 23,
             municipality: "Πειραιά",
-            actions: [],
+            actions: ["Ανασκόπηση"],
             status: 'not-submitted', 
 
         },
@@ -33,7 +33,7 @@ function ApplicationsWithProsPage() {
             person: "Θοδωρής Μηνιάδης",
             age: 32,
             municipality: "Νέα Σμύρνη",
-            actions: [],
+            actions: ["Ανασκόπηση"],
             status: "not-submitted",
 
         },
@@ -71,7 +71,7 @@ function ApplicationsWithProsPage() {
             document.title = title;
         }, [title]);
     };
-    useDocumentTitle('Aitiseis');
+    useDocumentTitle('Αιτήσεις συνεργασίας');
 
     return (
         <div className="applications-with-professionals-page">

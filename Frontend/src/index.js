@@ -18,6 +18,8 @@ import ApplicationPage from './Pages/ApplicationPage/ApplicationPage';
 import SearchProfessionalPage from './Pages/SearchProfessionalPage/SearchProfessionalPage';
 import MeetingsPage from './Pages/MeetingsPage/MeetingsPage';
 import ApplicationsWithProsPage from './Pages/ApplicationsWithProsPage/ApplicationsWithProsPage';
+import AgreementPage from './Pages/AgreementPage/AgreementPage';
+import WorkCertificationPage from './Pages/WorkCertificationPage/WorkCertificationPage';
 
 const router = createBrowserRouter([
     { path: Routes.Home, element: <App /> },
@@ -30,6 +32,8 @@ const router = createBrowserRouter([
     { path: `${Routes.Application}/${Routes.SearchProfessional}/${Routes.Professional}`, element: <ProfessionalPage /> },
     { path: `${Routes.Application}/${Routes.Meeting}`, element: <MeetingsPage /> },
     { path: `${Routes.Application}/${Routes.ApplicationsWithProfessionals}`, element: <ApplicationsWithProsPage /> },
+    { path: `${Routes.Application}/${Routes.Agreement}`, element: <AgreementPage /> },
+    { path: `${Routes.Application}/${Routes.WorkCertification}`, element: <WorkCertificationPage /> },
     { path: "*", element: <PageNotFound /> }
 ]);
 

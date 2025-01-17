@@ -1,0 +1,19 @@
+﻿.work-certification-main-container {
+    margin: 15px;
+    display: grid;
+    gap: 2rem;
+}
+
+    .work-certification-main-container .appointment-cards {
+        margin-bottom: 100px;
+    }
+
+    .work-certification-main-container .error-message {
+        padding: 20px 40px;
+        background: #E58C8C;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin: 0 600px;
+        border-radius: 7px;
+    }

@@ -76,7 +76,7 @@ function MeetingsPage() {
             document.title = title;
         }, [title]);
     };
-    useDocumentTitle('Sinantiseis');
+    useDocumentTitle('Συναντήσεις');
 
     return (
         <div className="meetings-page">

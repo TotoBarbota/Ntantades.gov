@@ -14,7 +14,7 @@ function AitisiSimmetoxisPage() {
             document.title = title;
         }, [title]);
     };
-    useDocumentTitle('Aitisi Simmetoxis');
+    useDocumentTitle('Αίτηση Συμμετοχής');
 
     return (
         <div className="aitisi-simmetoxis">

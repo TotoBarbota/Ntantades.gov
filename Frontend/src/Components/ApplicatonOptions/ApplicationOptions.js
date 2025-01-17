@@ -26,8 +26,8 @@ const ApplicationOptions = ({ applicationNumber, approved }) => {
                 <Button label='Αναζήτηση Επαγγελματία' onClick={() => navigate(Routes.SearchProfessional)} />
                 <Button label='Συναντήσεις' onClick={() => navigate(Routes.Meeting)} />
                 <Button label='Αιτήσεις συνεργασίας' onClick={() => navigate(Routes.ApplicationsWithProfessionals)} />
-                <Button label='Συμφωνητικό' />
-                <Button label='Πιστοποίηση εργασίας / Αποστολή voucher' />
+                <Button label='Συμφωνητικό' onClick={() => navigate(Routes.Agreement)} />
+                <Button label='Πιστοποίηση εργασίας / Αποστολή voucher' onClick={() => navigate(Routes.WorkCertification)} />
             </div>
         </div>
     );

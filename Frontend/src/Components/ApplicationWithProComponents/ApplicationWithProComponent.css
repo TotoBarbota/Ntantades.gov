@@ -1,6 +1,6 @@
 ﻿.application-card {
     border: 1px solid #ccc;
-    margin: 15px;
+    margin: 15px 60px;
     border-radius: 10px;
     padding: 15px;
     background-color: white
@@ -31,16 +31,18 @@
     margin-left: 15px;
 }
 
-.application-card .card-actions .action-button {
-    margin-left: 5px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+    .application-card .card-actions .action-button {
+        margin-left: 5px;
+        padding: 7px 14px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
 
-    .application-card .card-actions .action-button.Ανασκόπηση-Επεξεργασία {
-        background-color: #61A474;
+    .application-card .card-actions .action-button.Ανασκόπηση-Επεξεργασία,
+    .application-card .card-actions .action-button.Ανασκόπηση {
+        background-color: #357EBD;
         color: white;
     }
 

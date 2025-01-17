@@ -1,0 +1,58 @@
+﻿.agreement-card {
+    border: 1px solid #ccc;
+    margin: 15px 60px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: white
+}
+
+    .agreement-card .card-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 40px;
+    }
+
+.agreement-card .person-info {
+    display: flex;
+    align-items: center;
+}
+
+.agreement-card .person-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.agreement-card .person-info .basic-info {
+    display: flex;
+    padding-left: 35px;
+    border-left: 2px solid #0081D6;
+    margin-left: 15px;
+}
+
+.agreement-card .person-info .basic-info .first-line {
+    margin-right: 35px;
+}
+
+.agreement-card .card-actions .action-button {
+    margin-left: 5px;
+    padding: 7px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+    .agreement-card .card-actions .action-button.Υπήρξε.πρόβλημα {
+        background-color: #E58C8C;
+        color: white;
+    }
+
+    .agreement-card .card-actions .action-button.Επιβεβαιωμένο,
+    .agreement-card .card-actions .action-button.Επιβεβαίωση {
+        background-color: #61A474;
+        color: white;
+    }
