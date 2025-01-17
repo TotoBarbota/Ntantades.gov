@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
@@ -20,9 +20,11 @@ import MeetingsPage from './Pages/MeetingsPage/MeetingsPage';
 import ApplicationsWithProsPage from './Pages/ApplicationsWithProsPage/ApplicationsWithProsPage';
 import AgreementPage from './Pages/AgreementPage/AgreementPage';
 import WorkCertificationPage from './Pages/WorkCertificationPage/WorkCertificationPage';
+import Introduction from './Pages/Introduction/Introduction';
 
 const router = createBrowserRouter([
     { path: Routes.Home, element: <App /> },
+    { path: Routes.First, element: <Introduction /> },
     { path: Routes.Ntantades, element: <App /> },
     { path: Routes.Login, element: <LoginPage /> },
     { path: Routes.LoginVerification, element: <LoginVerificationPage /> },

@@ -38,7 +38,7 @@ function LoginVerificationPage() {
         if (code) {
             setErrorMessage(''); // Clear error message
             const queryParams = new URLSearchParams(location.search);
-            const returnUrl = queryParams.get('returnUrl') || '/'; // Default to home if no returnUrl
+            const returnUrl = queryParams.get('returnUrl') || '/Home'; // Default to home if no returnUrl
             console.log('return Url ', { returnUrl });
             localStorage.setItem('loggedIn', 'true');
             localStorage.setItem('username', username);
