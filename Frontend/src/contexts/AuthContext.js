@@ -1,12 +1,17 @@
-import { createContext, useState, useEffect, useContext } from "react";
-import { auth } from "../config/firebase";
+import { createContext, useState, useContext } from "react";
+import { auth, db } from "../config/firebase";
 import {
   signOut,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-import { Routes } from "react-router-dom";
+import {
+  getDocs,
+  setDoc,
+  updateDoc,
+  collection,
+  doc,
+} from "firebase/firestore";
 
 export const AuthContext = createContext();
 
@@ -15,7 +20,7 @@ export const useAuth = () => {
 };
 
 export default function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState({});
   const [username, setUsername] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -23,13 +28,17 @@ export default function AuthProvider({ children }) {
     try {
       console.log("signIn", email, password);
       await signInWithEmailAndPassword(auth, email, password).then(
-        (userCredential) => {
+        async (userCredential) => {
           console.log("signIn Success", email, password);
-
-          setCurrentUser(userCredential.user);
-          setUsername(userCredential.user.email);
+          const userid = userCredential.user.uid;
+          const userRef = collection(db, "users");
+          const querySnapshot = await getDocs(userRef);
+          const userDoc = querySnapshot.docs.find((doc) => doc.id === userid);
+          const currentUser = userDoc.data();
+          setUsername(currentUser.email);
+          setCurrentUser(currentUser);
           setIsAuthenticated(true);
-          console.log(userCredential.user);
+          console.log("current user is ", currentUser);
         }
       );
       return true;
@@ -43,22 +52,28 @@ export default function AuthProvider({ children }) {
     }
   }
 
-  async function register(email, password) {
+  async function register(details, password) {
     try {
-      console.log("register", email, password);
-      await createUserWithEmailAndPassword(auth, email, password).then(
-        (userCredential) => {
-          console.log("register Success", email, password);
-
-          setCurrentUser(userCredential.user);
-          setUsername(userCredential.user.email);
-          setIsAuthenticated(true);
-          console.log(userCredential.user);
+      console.log("registering..", details);
+      await createUserWithEmailAndPassword(auth, details.email, password).then(
+        () => {
+          console.log("register Success", details.email, password);
+          auth.onAuthStateChanged(async (user) => {
+            if (user) {
+              console.log(user);
+              const userRef = collection(db, "users");
+              const userid = user.uid;
+              await setDoc(doc(userRef, userid), details);
+              setCurrentUser(user);
+              setUsername(user.email);
+              setIsAuthenticated(true);
+            }
+          });
         }
       );
       return true;
     } catch (error) {
-      console.log("register Error", email, password);
+      console.log("register Error", details.email, details.password);
       const errorCode = error.code;
       const errorMessage = error.message;
       console.error(errorCode, errorMessage);
@@ -70,6 +85,7 @@ export default function AuthProvider({ children }) {
   function logoutHandler() {
     signOut(auth);
     setUsername(null);
+    setCurrentUser(null);
     setIsAuthenticated(false);
   }
 

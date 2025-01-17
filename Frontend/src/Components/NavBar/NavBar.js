@@ -11,6 +11,7 @@ import { useAuth } from "../../contexts/AuthContext";
 function NavBar() {
   const navigate = useNavigate();
   const authContext = useAuth();
+  console.log(authContext.currentUser);
 
   return (
     <div className="NavBar">
@@ -27,11 +28,14 @@ function NavBar() {
         <div className="right-section">
           {authContext.isAuthenticated ? (
             <>
-              <p className="name">{authContext.username}</p>
+              <p className="name">{authContext.currentUser.username}</p>
               <Button
                 className="connect"
                 label="Logout"
-                onClick={() => authContext.logout()}
+                onClick={() => {
+                  authContext.logout();
+                  navigate(Routes.Home);
+                }}
               />
             </>
           ) : (
