@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import "./Progress_Bar.css";
 
 function Progress_Bar() {
@@ -17,12 +17,12 @@ function Progress_Bar() {
       <div className="line"> </div>
       <div className="step">
         <div className="circle">3</div>
-        <div className="label">C</div>
+        <div className="label">Γ</div>
       </div>
       <div className="line"> </div>
       <div className="step">
         <div className="circle">4</div>
-        <div className="label">D</div>
+        <div className="label">Δ</div>
       </div>
       <div className="line"> </div>
       <div className="step">

@@ -1,26 +1,56 @@
 .Option1Page1 {
-  display: flex; /* Δημιουργία flex container */
-  flex-direction: column; /* Στήριξη των στοιχείων κάθετα */
-  min-height: 100vh; /* Εξασφαλίζει ότι η σελίδα θα έχει τουλάχιστον το ύψος του παραθύρου */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 85%;          /* Πλάτος 85% της οθόνης */
+  margin: 0 auto;      /* Κεντράρισμα του πλαισίου */
+  background: rgba(255, 255, 255, 0.7);   /* Λευκό φόντο */
+   font-family: 'Arial', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Προαιρετικό: προσθέτει μια απαλή σκιά */
 }
 
 footer {
   margin-top: auto; /* Το footer θα πάει στο κάτω μέρος */
 }
 
-
-.front-button-container {
-  position: absolute; /* Για να τοποθετηθεί απόλυτα σε σχέση με το γονικό */
-  top: 50%; /* Κεντράρισμα κατακόρυφα */
-  right: 0; /* Στο δεξιό άκρο */
-  transform: translateY(-50%); /* Ρύθμιση για ακριβές κεντράρισμα κατακόρυφα */
-  padding-right: 300px; /* Προσθήκη κενής απόστασης από το δεξιό άκρο */
+.info-component-container {
+  width: 100%; /* Το κείμενο να καταλαμβάνει όλο το πλάτος της σελίδας */
+  padding: 20px; /* Προσθήκη εσωτερικού padding για ευκολία ανάγνωσης */
+  min-height: 300px; /* Αυξάνουμε το ύψος για μεγαλύτερη αναγνωσιμότητα */
+  box-sizing: border-box; /* Περιλαμβάνει το padding στο συνολικό πλάτος */
 }
 
-.back-button-container {
-  position: absolute; /* Για να τοποθετηθεί απόλυτα σε σχέση με το γονικό */
-  top: 50%; /* Κεντράρισμα κατακόρυφα */
-  left: 0; /* Στο αριστερό άκρο */
-  transform: translateY(-50%); /* Ρύθμιση για ακριβές κεντράρισμα κατακόρυφα */
-  padding-left: 300px; /* Προσθήκη κενής απόστασης από το αριστερό άκρο */
+.buttonas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Κεντράρει τα κουμπιά κατακόρυφα */
+  margin: 20px auto; /* Προσθήκη κενών γύρω από τα κουμπιά */
+  width: 90%; /* Το πλαίσιο των κουμπιών να καταλαμβάνει το 90% του πλάτους */
+  max-width: 1200px; /* Μέγιστο πλάτος */
+  gap: 400px; /* Απόσταση ανάμεσα στα κουμπιά */
+  padding: 10px 10px; /* Χώρος αριστερά και δεξιά από τα κουμπιά */
+}
+/* Στυλ για το κουμπί "Προφίλ" */
+.profile-button {
+  display: inline-block !important;
+  color: white;
+  background-color: green !important;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-left: 5px;
+  border: 2px solid green !important; /* Προσθήκη πράσινου περιγράμματος */
+}
+
+.back-button, .front-button {
+  flex: 1; /* Τα κουμπιά να έχουν το ίδιο μέγεθος */
+  max-width: 200px; /* Μέγιστο πλάτος για τα κουμπιά */
+}
+
+.back-button {
+  text-align: left; /* Κουμπί "Πίσω" στα αριστερά */
+}
+
+.front-button {
+  text-align: right; /* Κουμπί "Μπροστά" στα δεξιά */
 }

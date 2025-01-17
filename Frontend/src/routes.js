@@ -3,5 +3,11 @@ export const Routes = {
     Login: 'login',
     Ntantades: 'ntantades',
     LoginVerification: 'loginVerification',
-    Option1Page1: '\Option1Page1'
+    Option1Page1: '\Option1Page1',
+    Option1Page2: '\Option1Page2',
+    Option1Page3: '\Option1Page3',
+    Option1Page4: '\Option1Page4',
+    Option1Page5: '\Option1Page5',
+    CV: '\CV',
+    Details: '\Details'
 };
