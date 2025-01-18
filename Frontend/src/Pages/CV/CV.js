@@ -1,13 +1,12 @@
 ﻿import NavBar from "../../Components/NavBar/NavBar";
 import './CV.css';
 import Footer from "../../Components/Footer/Footer";
-import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
 import CVButton from "../../Components/CVButton/CVButton";
 
 function CV() {
 
 	 return (
-    <div >
+    <div className="Some">
         <NavBar />
         <div className="CV">
             <div> 

@@ -56,7 +56,7 @@ function Option1Page3() {
 
 	return (
 	
-  <div>
+  <div className="Some">
 	<NavBar />
 	<div className = "Option1Page3">
 	<div className = "page-content">

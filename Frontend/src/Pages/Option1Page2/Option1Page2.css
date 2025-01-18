@@ -15,6 +15,9 @@
   display: flex;
   justify-content: center;
 }
+.Some{
+ background:#D3D3D3;
+}
 
 .content-wrapper {
   width: 80%;

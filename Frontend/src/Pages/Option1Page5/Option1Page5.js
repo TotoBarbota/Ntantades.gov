@@ -25,7 +25,7 @@ function Option1Page5() {
   };
 
 return(
-<div >
+<div className="Some">
 	<NavBar />
 	<div className = "Option1Page5">
 	<div className = "page-content">

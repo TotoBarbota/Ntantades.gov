@@ -19,6 +19,9 @@ footer {
   min-height: 300px; /* Αυξάνουμε το ύψος για μεγαλύτερη αναγνωσιμότητα */
   box-sizing: border-box; /* Περιλαμβάνει το padding στο συνολικό πλάτος */
 }
+.Some{
+ background:#D3D3D3;
+}
 
 .buttonas-container {
   display: flex;

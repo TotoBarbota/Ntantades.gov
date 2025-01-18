@@ -19,7 +19,7 @@ function Option1Page1() {
   };
 
   return (
-    <div >
+    <div className="Some" >
      <NavBar />
     <div className="Option1Page1">
       <div> 

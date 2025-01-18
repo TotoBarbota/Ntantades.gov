@@ -39,7 +39,7 @@ function Option1Page2() {
   };
 
   return (
- <div >
+ <div className="Some">
    <NavBar />
  <div className="Option1Page2">
   <div className="page-content">
