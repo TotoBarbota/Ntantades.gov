@@ -11,5 +11,7 @@ export const Routes = {
     Meeting: 'sinantiseis',
     ApplicationsWithProfessionals: 'aitiseis',
     Agreement: 'simfonitika',
-    WorkCertification: 'pistopoiitiko-ergasias'
+    WorkCertification: 'pistopoiitiko-ergasias',
+    ParentFormToParticipate: '/aitisi-gonea-gia-simmetoxi',
+    ParentFormToProfessional: 'aitisi-gonea-pros-ergazomeno'
 };

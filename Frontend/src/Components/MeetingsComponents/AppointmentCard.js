@@ -1,8 +1,25 @@
-import React from "react";
+﻿import React from "react";
+import { useNavigate } from 'react-router-dom';
+
 import "./AppointmentCard.css";
+import { Routes } from "../../routes";
 
 const AppointmentCard = ({ data }) => {
     const { status, person, date, location, actions, statusNum } = data;
+    const navigate = useNavigate();
+
+    const handleFormRequest = (person) => {
+        console.log("Open form for professionals");
+        navigate(Routes.ParentFormToProfessional, {state: person});
+    }
+
+    const handleActionClick = (action, person) => {
+        if (action === "Αίτημα συνεργασίας") {
+            handleFormRequest(person);
+        } else {
+            console.log(`No handler for action: ${action}`);
+        }
+    };
 
     return (
         <div className={`appointment-card ${statusNum}`}>
@@ -22,7 +39,7 @@ const AppointmentCard = ({ data }) => {
                 </div>
                 <div className="card-actions">
                     {actions.map((action, index) => (
-                        <button key={index} className={`action-button ${action}`}>
+                        <button key={index} className={`action-button ${action}`} onClick={() => handleActionClick(action, person)}>
                             {action}
                         </button>
                     ))}

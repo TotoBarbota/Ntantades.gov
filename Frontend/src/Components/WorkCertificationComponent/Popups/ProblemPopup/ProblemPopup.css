@@ -38,7 +38,7 @@
         border-radius: 4px;
         cursor: pointer;
         transition: background 0.3s ease;
-        width: 62%;
+        width: 70%;
         justify-self: center;
     }
 
@@ -60,4 +60,5 @@
 
     .problem-popup-overlay .input{
         display: inline-grid;
+        gap: 1rem;
     }

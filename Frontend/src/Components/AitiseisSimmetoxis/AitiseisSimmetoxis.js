@@ -1,9 +1,12 @@
 ﻿import { Button } from 'primereact/button';
+import { useNavigate } from "react-router-dom";
 
 import './AitiseisSimmetoxis.css'
 import Application from './Application';
+import { Routes } from '../../routes';
 
 function AitiseisSimmetoxis() {
+    const navigate = useNavigate();
     return (
         <div className='aitiseis-simmetoxis-container'>
             <h1>Ηλεκτρονική Αίτηση Συμμετοχής</h1>
@@ -14,7 +17,7 @@ function AitiseisSimmetoxis() {
                 <span>Δείτε τους όρους της πρόσκλησης εδώ:&nbsp;</span>
                 <a href='#'>Όροι πρόσκλησης</a>
             </div>
-            <Button label='Υποβολή νέας αίτησης' />
+            <Button label='Υποβολή νέας αίτησης' onClick={() => navigate(Routes.ParentFormToParticipate)} />
 
             {/* Three type of applications*/}
             <div className="applications-side">

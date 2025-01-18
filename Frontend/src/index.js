@@ -21,6 +21,8 @@ import ApplicationsWithProsPage from './Pages/ApplicationsWithProsPage/Applicati
 import AgreementPage from './Pages/AgreementPage/AgreementPage';
 import WorkCertificationPage from './Pages/WorkCertificationPage/WorkCertificationPage';
 import Introduction from './Pages/Introduction/Introduction';
+import ParentFormToParticipate from './Pages/ParentFormToParticipate/ParentFormToParticipate';
+import ParentFormToProfessional from './Pages/ParentFormToProfessional/ParentFormToProfessional';
 
 const router = createBrowserRouter([
     { path: Routes.Home, element: <App /> },
@@ -30,6 +32,8 @@ const router = createBrowserRouter([
     { path: Routes.LoginVerification, element: <LoginVerificationPage /> },
     { path: Routes.AitisiSimmetoxis, element: <AitisiSimmetoxisPage /> },
     { path: Routes.Application, element: <ApplicationPage /> },
+    { path: Routes.ParentFormToParticipate, element: <ParentFormToParticipate /> },
+    { path: `${Routes.Application}/${Routes.Meeting}/${Routes.ParentFormToProfessional}`, element: <ParentFormToProfessional /> },
     { path: `${Routes.Application}/${Routes.SearchProfessional}`, element: <SearchProfessionalPage /> },
     { path: `${Routes.Application}/${Routes.SearchProfessional}/${Routes.Professional}`, element: <ProfessionalPage /> },
     { path: `${Routes.Application}/${Routes.Meeting}`, element: <MeetingsPage /> },
