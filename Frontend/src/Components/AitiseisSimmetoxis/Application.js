@@ -1,37 +1,69 @@
-import { Button } from 'primereact/button';
+import { Button } from "primereact/button";
 import { useNavigate } from "react-router-dom";
 import { IoMdClose } from "react-icons/io";
 import { SiTicktick } from "react-icons/si";
 
+import { Routes } from "../../routes";
+import "./Application.css";
+import { useState } from "react";
 
-import { Routes } from '../../routes'
-import './Application.css'
+function Application(props) {
+  // type = 0 -> right, type = 1 -> not right, type = 2 -> on hold
+  console.log("props are ", props);
+  const navigate = useNavigate();
+  const { approved } = props;
+  console.log("aitisi type is ", approved);
 
-function Application({ number, type, button }) { // type = 0 -> right, type = 1 -> not right, type = 2 -> on hold
-    const navigate = useNavigate();
+  const buttonLabel =
+    approved === 0
+      ? "Ξ‘Ο€ΞΏΞ΄ΞΏΟ‡Ξ®"
+      : approved === 1
+      ? "Ξ‘Ο€ΞΏΟΟΞΉΟΞΌΞ±"
+      : approved === 2
+      ? "Ξ‘Ξ½Ξ±ΞΌΞΏΞ½Ξ·"
+      : "";
 
-    const typeClassName =
-        type === 0 ? 'type-icon-right' :
-            type === 1 ? 'type-icon-not-right' :
-                type === 2 ? 'type-icon-on-hold' : '';
+  console.log("button label is ", buttonLabel);
 
-    // label on unicode symbolism to be accepted the greek language
-    const typeSymbol =
-        type === 0 ? <SiTicktick /> :   
-            type === 1 ? <IoMdClose /> : ''; 
+  const typeClassName =
+    approved === 0
+      ? "type-icon-right"
+      : approved === 1
+      ? "type-icon-not-right"
+      : approved === 2
+      ? "type-icon-on-hold"
+      : "";
 
-    const typeLabel =
-        type === 0 ? '\u0388\u03B3\u03BA\u03C5\u03C1\u03B7' :    // Έγκυρη
-            type === 1 ? '\u039C\u03B7 \u0388\u03B3\u03BA\u03C5\u03C1\u03B7' : // Μη Έγκυρη
-                type === 2 ? '\u03A3\u03B5 \u03B1\u03BD\u03B1\u03BC\u03BF\u03BD\u03AE' : ''; // Σε αναμονή
+  console.log("type class name is ", typeClassName);
 
-    return (
-        <div className='application-container'>
-            <p>#{number}</p>
-            <p className={typeClassName}>{typeSymbol} <b>{typeLabel}</b></p>
-            <Button label={button} onClick={() => navigate(`${Routes.AitisiSimmetoxis}/${number}`)} />
-        </div>
-    )
+  function routeToOptions() {
+    navigate(Routes.Application, { replace: true });
+  }
+
+  // label on unicode symbolism to be accepted the greek language
+  const typeSymbol =
+    approved === 0 ? <SiTicktick /> : approved === 1 ? <IoMdClose /> : "";
+
+  const typeLabel =
+    approved === 0
+      ? "\u0388\u03B3\u03BA\u03C5\u03C1\u03B7" // οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½
+      : approved === 1
+      ? "\u039C\u03B7 \u0388\u03B3\u03BA\u03C5\u03C1\u03B7" // οΏ½οΏ½ οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½
+      : approved === 2
+      ? "\u03A3\u03B5 \u03B1\u03BD\u03B1\u03BC\u03BF\u03BD\u03AE"
+      : ""; // οΏ½οΏ½ οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½
+
+  return (
+    <div className="application-container">
+      <p className={typeClassName}>
+        {typeSymbol} <b>{typeLabel}</b>
+      </p>
+      <Button
+        label={buttonLabel}
+        onClick={() => navigate(Routes.Application, { replace: true })}
+      />
+    </div>
+  );
 }
 
-export default Application
+export default Application;

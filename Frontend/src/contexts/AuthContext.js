@@ -22,6 +22,7 @@ export const useAuth = () => {
 export default function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState({});
   const [username, setUsername] = useState(null);
+  const [userID, setUserID] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   async function signIn(email, password) {
@@ -38,6 +39,7 @@ export default function AuthProvider({ children }) {
           setUsername(currentUser.email);
           setCurrentUser(currentUser);
           setIsAuthenticated(true);
+          setUserID(userid);
           console.log("current user is ", currentUser);
         }
       );
@@ -93,6 +95,7 @@ export default function AuthProvider({ children }) {
     currentUser,
     isAuthenticated,
     username,
+    userID,
     signIn,
     logout: logoutHandler,
     register,

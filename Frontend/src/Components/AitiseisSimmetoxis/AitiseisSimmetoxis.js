@@ -1,29 +1,56 @@
-﻿import { Button } from 'primereact/button';
+﻿import { Button } from "primereact/button";
 
-import './AitiseisSimmetoxis.css'
-import Application from './Application';
+import "./AitiseisSimmetoxis.css";
+import Application from "./Application";
+import { useAuth } from "../../contexts/AuthContext";
+import { db } from "../../config/firebase";
+import { collection, getDocs } from "firebase/firestore";
+import { useEffect, useState } from "react";
 
 function AitiseisSimmetoxis() {
-    return (
-        <div className='aitiseis-simmetoxis-container'>
-            <h1>Ηλεκτρονική Αίτηση Συμμετοχής</h1>
-            <h3><b>Αίτηση ωφελουμένων στη Δράση Νταντάδες της Γειτονιάς <br/>
-                Υπηρεσία κατ' οίκον φροντίδας βρεφών και νηπίων από 2 μηνών έως 2,5 ετών</b>
-            </h3>
-            <div className='blue-notification'>
-                <span>Δείτε τους όρους της πρόσκλησης εδώ:&nbsp;</span>
-                <a href='#'>Όροι πρόσκλησης</a>
-            </div>
-            <Button label='Υποβολή νέας αίτησης' />
+  const authContext = useAuth();
+  const [aithsh, setAithsh] = useState(null);
 
-            {/* Three type of applications*/}
-            <div className="applications-side">
-            <Application number={555} type={1} button={"Επεξεργασία"} />
-            <Application number={444} type={0} button={"Συνέχεια"} />
-            <Application number={333} type={2} button={"Επεξεργασία"} />
-            </div>
-        </div>
-    );
+  async function fetchData() {
+    const userId = authContext.userID;
+    if (userId) {
+      const aithseisRef = collection(db, "aithseis");
+      const querySnapshot = await getDocs(aithseisRef);
+
+      const aithshDoc = querySnapshot.docs.find(
+        (doc) => doc.data().parent_user_id === userId
+      );
+
+      setAithsh(aithshDoc ? aithshDoc.data() : null);
+      console.log("aithsh", aithshDoc.data());
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return (
+    <div className="aitiseis-simmetoxis-container">
+      <h1>Ηλεκτρονική Αίτηση Συμμετοχής</h1>
+      <h3>
+        <b>
+          Αίτηση ωφελουμένων στη Δράση Νταντάδες της Γειτονιάς <br />
+          Υπηρεσία κατ' οίκον φροντίδας βρεφών και νηπίων από 2 μηνών έως 2,5
+          ετών
+        </b>
+      </h3>
+      <div className="blue-notification">
+        <span>Δείτε τους όρους της πρόσκλησης εδώ:&nbsp;</span>
+        <a href="#">Όροι πρόσκλησης</a>
+      </div>
+      <Button label="Υποβολή νέας αίτησης" onClick={fetchData} />
+
+      <div className="applications-side">
+        {aithsh && <Application approved={aithsh.approved} />}
+      </div>
+    </div>
+  );
 }
 
 export default AitiseisSimmetoxis;

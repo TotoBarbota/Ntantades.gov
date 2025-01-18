@@ -31,6 +31,8 @@ function RegisterPage() {
   const [streetNumber, setStreetNumber] = useState(0);
   const [username, setUsername] = useState("");
   const [phone_number, setPhone_number] = useState(0);
+  const [professional_description, setProfessional_description] = useState("");
+  const [hoursPerWeek, setHoursPerWeek] = useState(0);
 
   const authContext = useAuth();
 
@@ -60,6 +62,8 @@ function RegisterPage() {
     id_number: id_number || "",
     afm: afm || 0,
     amka: amka || 0,
+    professional_description: professional_description || "",
+    hoursPerWeek: hoursPerWeek || 0,
   };
 
   async function handleSubmit(event) {
@@ -339,6 +343,24 @@ function RegisterPage() {
             value={num_of_experience}
             onChange={(event) =>
               setNum_of_experience(event.target.valueAsNumber)
+            }
+          />
+        </label>
+        <label>
+          <p>Ώρες Εργασίας την Εβδομάδα</p>
+          <input
+            type="number"
+            value={hoursPerWeek}
+            onChange={(event) => setHoursPerWeek(event.target.valueAsNumber)}
+          />
+        </label>
+
+        <label>
+          <p>Περιγραφή Επαγγέλματος</p>
+          <textarea
+            value={professional_description}
+            onChange={(event) =>
+              setProfessional_description(event.target.value)
             }
           />
         </label>

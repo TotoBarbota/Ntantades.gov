@@ -6,9 +6,13 @@ import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
 import Tabs from "../../Components/MeetingsComponents/Tabs";
 import AppointmentCard from "../../Components/MeetingsComponents/AppointmentCard";
 import "./MeetingsPage.css";
+import { useAuth } from "../../contexts/AuthContext";
 
 function MeetingsPage() {
   const [activeTab, setActiveTab] = useState("Τρέχοντα");
+  const authContext = useAuth();
+  const { currentUser } = authContext.currentUser;
+  console.log("current user is ", currentUser);
 
   const appointments = [
     {
