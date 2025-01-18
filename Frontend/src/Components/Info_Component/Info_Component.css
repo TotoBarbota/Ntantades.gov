@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Το wrapper πιάνει όλο το πλάτος της σελίδας */
+.info-component-wrapper {
+  width: 100%;
+  background-color: #f5f5f5; /* Ανοιχτό γκρι για το πλαίσιο */
+  padding: 20px 0; /* Κάθετο padding */
+  box-sizing: border-box;
+}
+
+/* Το περιεχόμενο στο κέντρο του πλαισίου */
+.info-component {
+  max-width: 1200px; /* Μέγιστο πλάτος για το περιεχόμενο */
+  margin: 0 auto; /* Κεντράρει το περιεχόμενο */
+  padding: 20px; /* Εσωτερικό padding */
+  background-color: white; /* Λευκό φόντο για το περιεχόμενο */
+  border: 1px solid #ddd; /* Απαλό περίγραμμα */
+  border-radius: 8px; /* Στρογγυλεμένες γωνίες */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ελαφριά σκιά */
+  line-height: 1.6; /* Αυξάνει την απόσταση μεταξύ των γραμμών του κειμένου */
+}
+
+
+/* Στυλ για το κουμπί "Προφίλ" */
+.profile-button {
+  display: inline-block !important;
+  color: white;
+  background-color: green !important;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-left: 5px;
+  border: 2px solid green !important; /* Προσθήκη πράσινου περιγράμματος */
+}

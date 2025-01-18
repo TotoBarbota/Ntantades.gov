@@ -1,0 +1,56 @@
+html {
+    background-color: #DDDDDD;
+}
+
+.steps-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+}
+.line{
+
+
+}
+.step {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-weight: bold;
+  color: #666;
+}
+
+
+.line {
+  display: inline-block; /* Κρατά τις γραμμές δίπλα στους κύκλους */
+  flex: 1;
+  height: 2px; /* Πάχος της γραμμής */
+  background-color: #ccc;
+  position: relative; /* Η γραμμή ευθυγραμμίζεται χωρίς κοντέινερ */
+  top: -14px; /* Τοποθετεί τη γραμμή στο κέντρο του κύκλου */
+  z-index: 0; /* Η γραμμή μένει πίσω από τους κύκλους */
+}
+
+.label {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.step.active .circle {
+  background-color: #007bff;
+}

@@ -1,0 +1,76 @@
+.birth-year-container {
+	  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px;
+}
+
+.input-label {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative; /* Για να τοποθετήσουμε το εικονίδιο μέσα στο πλαίσιο */
+  width: 120px; /* Πλάτος του πλαισίου */
+}
+
+.custom-input {
+  font-size: 16px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 100%; /* Το input να γεμίζει το wrapper */
+  text-align: center;
+  position: relative;
+  padding-right: 10px; /* Προσθέτουμε χώρο για το εικονίδιο */
+}
+
+.custom-input::placeholder {
+  letter-spacing: 4px; /* Δίνει εμφάνιση γραμμών */
+}
+
+.calendar-icon {
+  position: absolute;
+  right: 2px; /* Τοποθέτηση εικονιδίου μέσα στο input */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  color: #000;
+}
+
+.year-picker {
+  position: absolute;
+  top: 0; /* Ίδιο ύψος με το κουμπί */
+  left: 170px; /* Εμφανίζεται δεξιά από το input */
+  z-index: 1000;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: scroll;
+  width: 120px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.year-option {
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.year-option:hover {
+  background-color: #f0f0f0;
+}
+
+.success-message {
+  color: green;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+

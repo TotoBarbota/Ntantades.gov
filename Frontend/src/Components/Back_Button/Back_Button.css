@@ -1,0 +1,22 @@
+
+.button-back {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff; /* Μπλε χρώμα */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect για το κουμπί "ΠΙΣΩ" */
+.button-back:hover {
+  background-color: #0056b3; /* Πιο σκούρο μπλε στο hover */
+}

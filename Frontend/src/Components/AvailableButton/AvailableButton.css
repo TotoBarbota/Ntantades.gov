@@ -1,0 +1,102 @@
+.container {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+/* Προσθήκη περιγράμματος γύρω από τα κουμπιά των ημερών */
+.day-buttons-container {
+  border: 2px solid #bcdff6;
+  border-radius: 8px;
+  padding: 15px;
+  display: inline-block;
+  margin-bottom: 20px;
+  background-color: #f7fbff;
+}
+
+.day-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.day-button {
+  padding: 10px 20px;
+  background-color: #a4d3f5; /* Πιο σκούρο χρώμα */
+  border: 2px solid #bcdff6; /* Προσθήκη περιγράμματος */
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.day-button:hover {
+  background-color: #92c1e6; /* Χρώμα hover */
+  transform: scale(1.05); /* Ελαφριά μεγέθυνση */
+}
+
+.day-button:active {
+  background-color: #7fb3d4; /* Χρώμα όταν πατιέται */
+}
+
+/* Περιοχή επιλογών ώρας */
+.time-selector {
+  border: 1px solid #d6eaff;
+  border-radius: 8px;
+  padding: 10px;
+  max-height: 200px; /* Περιορισμός ύψους για scroll */
+  overflow-y: auto; /* Ενεργοποίηση scroll */
+  margin-bottom: 20px;
+}
+
+.time-selector label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.time-selector input {
+  margin-right: 10px;
+}
+
+/* Περίληψη επιλογών */
+.selection-summary {
+  border: 1px solid #d6eaff;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #f7fbff;
+}
+
+.selection-summary table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.selection-summary th,
+.selection-summary td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Κουμπιά ακύρωσης και επεξεργασίας */
+.buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.cancel {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+button.edit {
+  background-color: #d4edda;
+  color: #155724;
+}
