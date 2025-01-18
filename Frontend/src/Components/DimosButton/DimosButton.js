@@ -14,7 +14,7 @@ export default function DimosButton({ props }) {
   return (
     <div className="butt-container">
       {dropdowns.map((_, index) => (
-        <Dropdown key={index} setRegion={setRegion} region={region} />
+        <Dropdown key={index} props={{ region, setRegion }} />
       ))}
       <button className="add-button" onClick={addDropdown}>
         Προσθήκη Δήμου
@@ -23,7 +23,8 @@ export default function DimosButton({ props }) {
   );
 }
 
-function Dropdown({ setRegion, region }) {
+function Dropdown({ props }) {
+  const { region, setRegion } = props;
   const [optionsVisible, setOptionsVisible] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
 
@@ -34,7 +35,7 @@ function Dropdown({ setRegion, region }) {
   const selectOption = (option) => {
     console.log("Current region before update:", region);
     setRegion([...region, option]);
-    console.log("Updated region:", [...region, option]);
+    console.log("Updated region:", region);
     setSelectedOption(option);
     setOptionsVisible(false);
   };

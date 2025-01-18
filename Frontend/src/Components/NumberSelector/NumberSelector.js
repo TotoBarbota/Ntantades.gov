@@ -1,11 +1,13 @@
 ﻿import React, { useState } from "react";
 import "./NumberSelector.css";
 
-const NumberSelector = () => {
+const NumberSelector = ({ props }) => {
+  const { experience_years, setExperience_years } = props;
   const [selectedNumber, setSelectedNumber] = useState(null);
   const [showMessage, setShowMessage] = useState(false);
 
   const handleNumberClick = (number) => {
+    setExperience_years(number);
     setSelectedNumber(number);
     setShowMessage(true);
 
@@ -42,14 +44,8 @@ const NumberSelector = () => {
           Η επιλογή σας καταχωρήθηκε επιτυχώς!
         </div>
       )}
-
-      <button className="create-button" onClick={handleSubmClick}>
-        Δημιουργία Αγγελίας
-      </button>
     </div>
   );
 };
 
 export default NumberSelector;
-
-

@@ -11,9 +11,13 @@ import AvailableButton from "../../Components/AvailableButton/AvailableButton";
 import NumberSelector from "../../Components/NumberSelector/NumberSelector";
 import { useNavigate } from "react-router-dom";
 import { Routes } from "../../routes";
+import { collection, doc, setDoc } from "firebase/firestore";
+import { db } from "../../config/firebase";
+import { useAuth } from "../../contexts/AuthContext";
 
 function Option1Page4() {
   const navigate = useNavigate();
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleBackClick = () => {
     navigate(`${Routes.Option1Page3}`);
@@ -40,7 +44,32 @@ function Option1Page4() {
     {
       console.log("Post", post);
     }
-  }, [post]);
+  }, [region, available_days, available_hours, experience_years]);
+  const authContext = useAuth();
+  const userID = authContext.userID;
+
+  const handleSubmitClick = async () => {
+    setShowMessage(true);
+    console.log(available_days, available_hours, region, experience_years);
+    setPost({
+      available_days: available_days,
+      available_hours: available_hours,
+      region: region,
+      experience_years: experience_years,
+    });
+
+    try {
+      const postRef = collection(db, "posts");
+      console.log("sending ", post);
+      await setDoc(doc(postRef), {
+        ...post,
+        ntanta_user_id: userID,
+      });
+      console.log("Document successfully written!");
+    } catch (error) {
+      console.error("Error writing document: ", error);
+    }
+  };
 
   return (
     <div className="Some">
@@ -78,6 +107,9 @@ function Option1Page4() {
           </div>
         </div>
         <div className="buttonas2-container">
+          <button className="create-button" onClick={handleSubmitClick}>
+            Δημιουργία Αγγελίας
+          </button>
           <div className="back-button">
             <Back_Button onClickHandler={handleBackClick} />
           </div>
