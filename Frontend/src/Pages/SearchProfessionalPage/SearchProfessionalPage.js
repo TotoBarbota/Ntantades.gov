@@ -112,7 +112,7 @@ function SearchProfessionalPage() {
       document.title = title;
     }, [title]);
   };
-  useDocumentTitle("Search Professional");
+  useDocumentTitle("Αναζήτηση επαγγελματία");
 
   return (
     <div className="search-professional">

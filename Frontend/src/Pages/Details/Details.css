@@ -1,0 +1,41 @@
+.Details {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 85%;          /* Πλάτος 85% της οθόνης */
+  margin: 0 auto;      /* Κεντράρισμα του πλαισίου */
+  background: #FFFFFF;   /* Λευκό φόντο */
+   font-family: 'Arial', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Προαιρετικό: προσθέτει μια απαλή σκιά */
+}
+.Some{
+ background:#D3D3D3;
+}
+
+footer {
+  margin-top: auto; /* Το footer θα πάει στο κάτω μέρος */
+}
+
+.back-button, .front-button  {
+  flex: 1;
+  max-width: 200px;
+}
+
+.back-button {
+  text-align: left;
+}
+
+.front-button {
+  text-align: right;
+}
+
+.buttonas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Κεντράρει τα κουμπιά κατακόρυφα */
+  margin: 20px auto; /* Προσθήκη κενών γύρω από τα κουμπιά */
+  width: 90%; /* Το πλαίσιο των κουμπιών να καταλαμβάνει το 90% του πλάτους */
+  max-width: 1200px; /* Μέγιστο πλάτος */
+  gap: 400px; /* Απόσταση ανάμεσα στα κουμπιά */
+  padding: 10px 10px; /* Χώρος αριστερά και δεξιά από τα κουμπιά */
+}

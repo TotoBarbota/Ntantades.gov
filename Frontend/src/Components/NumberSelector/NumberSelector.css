@@ -1,0 +1,101 @@
+.container {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  position: relative; /* Απαιτείται για τοποθέτηση του μηνύματος */
+}
+
+/* Πλαίσιο με αριθμούς */
+.number-selector {
+  width: 100px;
+  height: 150px; /* Ύψος για scroll */
+  border: 1px solid #bcdff6;
+  border-radius: 8px;
+  padding: 10px;
+  overflow-y: auto; /* Ενεργοποίηση scroll */
+  background-color: #f7fbff;
+  text-align: center;
+}
+
+.number {
+  padding: 10px;
+  cursor: pointer;
+  color: #007bff;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+.number:hover {
+  background-color: #e3f2fd;
+}
+
+.number:active {
+  background-color: #bbdefb;
+}
+
+/* Μήνυμα επιτυχίας στα αριστερά */
+.success-message {
+  position: absolute; /* Τοποθέτηση στην αριστερή πλευρά */
+  top: 250px;
+  left: 20px; /* Στα αριστερά της σελίδας */
+  color: #155724;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Κουμπί "Δημιουργία Αγγελίας" */
+.create-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #a8d5a8;
+  color: #155724;
+  border: 1px solid #8bc48b;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.create-button:hover {
+  background-color: #8bc48b;
+}
+
+.number {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin: 5px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.number:hover {
+  background-color: #e0e0e0;
+}
+
+.number.selected {
+  background-color: #4caf50;
+  color: white;
+  border-color: #388e3c;
+}
+
+.create-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.create-button:hover {
+  background-color: #1976d2;
+}
+

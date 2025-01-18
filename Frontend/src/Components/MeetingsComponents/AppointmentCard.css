@@ -63,13 +63,19 @@
     border-left: 2px solid #0081D6;
 }
 
-.appointment-card .card-actions .action-button {
-    margin-left: 5px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.appointment-card .card-actions{
+    display: grid;
+    gap: 1rem;
 }
+
+    .appointment-card .card-actions .action-button {
+        margin-left: 5px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+    }
 
     .appointment-card .card-actions .action-button.Αποδοχή {
         background-color: #61A474;

@@ -1,0 +1,68 @@
+.host-button-container {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+.input-label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 200px;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #fff;
+  text-align: left;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.dropdown-icon {
+  float: right;
+  margin-left: auto;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+  z-index: 1000;
+}
+
+.dropdown-item {
+  padding: 10px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.success-message {
+  margin-top: 8px;
+  font-size: 14px;
+  color: green;
+}

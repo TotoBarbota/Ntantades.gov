@@ -1,0 +1,152 @@
+.page-content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.Option1Page3 {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 85%;          /* Πλάτος 85% της οθόνης */
+  margin: 0 auto;      /* Κεντράρισμα του πλαισίου */
+  background: rgba(255, 255, 255, 0.7);    /* Λευκό φόντο */
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Προαιρετικό: προσθέτει μια απαλή σκιά */
+}
+.content-wrapper {
+  width: 80%;
+  max-width: 1200px;
+}
+.Some{
+ background:#D3D3D3;
+}
+
+.section-divider {
+  height: 1px;
+  background-color: #666;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0 10px;
+}
+
+.subsection-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+
+.buttons-container {
+  display: flex;
+  flex-direction: column; /* Κάθετη διάταξη */
+  align-items: center; /* Κεντράρει το μπλε κουμπί */
+  gap: 15px; /* Απόσταση μεταξύ του μπλε κουμπιού και των άλλων */
+  padding: 0; /* Καμία εσωτερική απόσταση */
+  border: none; /* Αφαίρεση περιγράμματος */
+  background-color: transparent; /* Καμία φόντο */
+  margin: 0 auto; /* Κεντράρισμα του container στη σελίδα */
+}
+
+#create {
+  background-color: #4682b4; /* Μπλε φόντο για το κουμπί */
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px; /* Κανονική διάσταση */
+  border: none; /* Αφαίρεση περιγράμματος */
+  border-radius: 10px; /* Στρογγυλεμένες γωνίες */
+  box-shadow: none; /* Καμία σκιά */
+  cursor: pointer;
+}
+
+#cancel, #edit {
+  font-size: 12px; /* Μικρότερο μέγεθος για το κόκκινο και πράσινο κουμπί */
+  padding: 5px 15px; /* Μικρότερη διάσταση */
+  border: none; /* Αφαίρεση περιγράμματος */
+  border-radius: 10px; /* Στρογγυλεμένες γωνίες */
+  box-shadow: none; /* Καμία σκιά */
+  cursor: pointer;
+}
+
+#cancel {
+  background-color: #f08080; /* Κόκκινο φόντο */
+  color: white;
+}
+
+#edit {
+  background-color: #90ee90; /* Πράσινο φόντο */
+  color: black;
+}
+
+/* Στοίχιση του κόκκινου και πράσινου κουμπιού στην ίδια ευθεία */
+.small-buttons {
+  display: flex;
+  gap: 10px; /* Απόσταση ανάμεσα στα δύο κουμπιά */
+  justify-content: center; /* Κεντράρισμα κάτω από το μπλε κουμπί */
+  width: 100%;
+}
+
+button {
+  font-family: Arial, sans-serif;
+  border: none; /* Αφαίρεση περιγράμματος */
+  background: none; /* Καμία φόντο */
+  box-shadow: none; /* Καμία σκιά */
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9; /* Εφέ hover */
+}
+.info-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px auto;
+  width: 100%;
+  gap: 20px;
+}
+
+.name-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 500px;
+  margin: 20px auto;
+  width: 100%;
+}
+
+.back-button, .front-button {
+  flex: 1;
+  max-width: 200px;
+}
+
+.back-button {
+  text-align: left;
+}
+
+.front-button {
+  text-align: right;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.buttonas2-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Κεντράρει τα κουμπιά κατακόρυφα */
+  margin: 20px auto; /* Προσθήκη κενών γύρω από τα κουμπιά */
+  width: 90%; /* Το πλαίσιο των κουμπιών να καταλαμβάνει το 90% του πλάτους */
+  max-width: 1200px; /* Μέγιστο πλάτος */
+  gap: 400px; /* Απόσταση ανάμεσα στα κουμπιά */
+  padding: 10px 10px; /* Χώρος αριστερά και δεξιά από τα κουμπιά */
+}
+
