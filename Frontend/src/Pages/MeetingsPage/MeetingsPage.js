@@ -7,6 +7,8 @@ import Tabs from "../../Components/MeetingsComponents/Tabs";
 import AppointmentCard from "../../Components/MeetingsComponents/AppointmentCard";
 import "./MeetingsPage.css";
 import { useAuth } from "../../contexts/AuthContext";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../config/firebase";
 
 function MeetingsPage() {
   const [activeTab, setActiveTab] = useState("Τρέχοντα");
@@ -14,62 +16,76 @@ function MeetingsPage() {
   const { currentUser } = authContext.currentUser;
   console.log("current user is ", currentUser);
 
-  const appointments = [
-    {
-      id: 1,
-      status: "Αίτημα αλλαγής ώρας / τοποθεσίας",
-      person: "Θοδωρής Μηνιάδης",
-      date: "23-07-2024, 18:30",
-      location: "Google Meet (http://gmeetlink)",
-      actions: ["Αποδοχή", "Αλλαγή ημερομηνίας", "Απόρριψη"],
-      statusNum: "request", // aitima allagis oras
-    },
-    {
-      id: 2,
-      status: "Αναμονή απάντησης από επαγγελματία",
-      person: "Θοδωρής Μηνιάδης",
-      date: "23-07-2024, 18:30",
-      location: "Google Meet (http://gmeetlink)",
-      actions: ["Αλλαγή ημερομηνίας", "Ακύρωση"],
-      statusNum: "wait", // anamoni apantisis
-    },
-    {
-      id: 3,
-      status: "Προγραμματισμένη",
-      person: "Θοδωρής Μηνιάδης",
-      date: "23-07-2024, 18:30",
-      location: "Google Meet (http://gmeetlink)",
-      actions: ["Αλλαγή ημερομηνίας", "Ακύρωση"],
-      statusNum: "schedule", // programmatismeni
-    },
-    {
-      id: 4,
-      status: "Ολοκληρωμένη",
-      person: "Θοδωρής Μηνιάδης",
-      date: "23-07-2024, 18:30",
-      location: "Google Meet (http://gmeetlink)",
-      actions: ["Αίτημα συνεργασίας", "Αρχειοθέτηση"],
-      statusNum: "completed", // olokliromeni
-    },
-    {
-      id: 5,
-      status: "Άκυρη",
-      person: "Θοδωρής Μηνιάδης",
-      date: "23-07-2024, 18:30",
-      location: "Google Meet (http://gmeetlink)",
-      actions: [],
-      statusNum: "closed", // olokliromeni
-    },
-  ];
+  // state 1 : request, state 2: wait, state 3: schedule, state 4: completed, state 5: closed
+  const [meetings, setMeetings] = useState([]);
+  const meetingsRef = collection(db, "meetings");
 
-  const filteredAppointments = appointments.filter((appointment) => {
-    if (activeTab === "Τρέχοντα") {
-      return appointment.statusNum !== "closed"; // Exclude "Άκυρη"
-    } else if (activeTab === "Ακυρωμένα") {
-      return appointment.statusNum === "closed"; // Include only "Άκυρη"
-    }
-    return false;
-  });
+  const getMeetings = async () => {
+    const snapshot = await getDocs(meetingsRef);
+    const meetingsArray = snapshot.docs
+      .map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }))
+      .filter((meeting) => meeting.parent_user_id === authContext.userID);
+    setMeetings(meetingsArray);
+  };
+
+  async function formatMeetings(meetings) {
+    const formattedMeetings = meetings.map((meeting) => {
+      const stateNum = meeting.state;
+      const state = actionsMap[stateNum].join(", ");
+      const location = meeting.location || meeting.place;
+      const date = meeting.meet_date.toDate().toLocaleDateString("el-GR");
+      const userRef = collection(db, "users");
+      const userDoc = getDocs(userRef).then((snapshot) =>
+        snapshot.docs.find((doc) => doc.id === meeting.ntanta_user_id)
+      );
+      const person = userDoc.then((doc) => {
+        const { firstName, lastName } = doc.data();
+        return `${firstName} ${lastName}`;
+      });
+      return {
+        actions: actionsMap[stateNum],
+        stateNum,
+        state,
+        location,
+        date,
+        person,
+      };
+    });
+    setMeetings(formattedMeetings);
+  }
+
+  useEffect(() => {
+    getMeetings();
+    formatMeetings(meetings);
+    console.log("meetings are ", meetings);
+  }, [meetings.some((meeting) => meeting.state !== meeting.prevState)]);
+
+  const actionsMap = {
+    1: ["Αποδοχή", "Αλλαγή ημερομηνίας", "Απόρριψη"],
+    2: ["Αλλαγή ημερομηνίας", "Απόρριψη"],
+    3: ["Αρχειοθέτηση"],
+    4: ["Αρχειοθέτηση"],
+    5: [],
+  };
+
+  const filterAppointments = (meetings, activeTab) => {
+    return meetings.filter((appointment) =>
+      activeTab === "Ακυρωμένα"
+        ? appointment.state === 5
+        : activeTab === "Ολοκληρωμένα"
+        ? appointment.state === 4
+        : activeTab === "Τρέχοντα"
+        ? appointment.state !== 4 && appointment.state !== 5
+        : false
+    );
+  };
+
+  const filteredAppointments = filterAppointments(meetings, activeTab);
+
+  console.log("filteredAppointments", filteredAppointments);
 
   const useDocumentTitle = (title) => {
     useEffect(() => {
@@ -90,13 +106,17 @@ function MeetingsPage() {
             tabs={[
               {
                 label: "Τρέχοντα",
-                count: appointments.filter((app) => app.statusNum !== "closed")
-                  .length,
+                count: meetings.filter(
+                  (app) => app.state !== 5 && app.state !== 4
+                ).length,
+              },
+              {
+                label: "Ολοκληρωμένα",
+                count: meetings.filter((app) => app.state === 4).length,
               },
               {
                 label: "Ακυρωμένα",
-                count: appointments.filter((app) => app.statusNum === "closed")
-                  .length,
+                count: meetings.filter((app) => app.state === 5).length,
               },
             ]}
             activeTab={activeTab}
@@ -104,7 +124,7 @@ function MeetingsPage() {
           />
           <div className="appointment-cards">
             {filteredAppointments.map((appointment) => (
-              <AppointmentCard key={appointment.id} data={appointment} />
+              <AppointmentCard data={appointment} />
             ))}
           </div>
         </div>

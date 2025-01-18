@@ -60,7 +60,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: `${Routes.Application}/${Routes.Meeting}`,
+    path: `${Routes.AitisiSimmetoxis}/${Routes.Application}/${Routes.Meeting}`,
     element: (
       <ProtectedRoute>
         <MeetingsPage />

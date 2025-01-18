@@ -60,7 +60,11 @@ function Application(props) {
       </p>
       <Button
         label={buttonLabel}
-        onClick={() => navigate(Routes.Application, { replace: true })}
+        onClick={() => {
+          if (approved === 0) {
+            navigate(Routes.Application, { replace: true });
+          }
+        }}
       />
     </div>
   );

@@ -33,7 +33,7 @@ const CalendarModal = ({
     const meetingDate = new Date(dateTimeString);
     const isOnline = place === undefined && location === undefined;
     await setDoc(doc(meetingsRef), {
-      type: isOnline ? "online" : "in-person",
+      isOnline: isOnline ? true : false,
       ntanta_user_id: selectedUser.id,
       parent_user_id: authContext.userID,
       state: 3,
