@@ -1,0 +1,29 @@
+.CV {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 85%;          /* Πλάτος 85% της οθόνης */
+  margin: 0 auto;      /* Κεντράρισμα του πλαισίου */
+  background: rgba(255, 255, 255, 0.7);   /* Λευκό φόντο */
+   font-family: 'Arial', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Προαιρετικό: προσθέτει μια απαλή σκιά */
+}
+
+footer {
+  margin-top: auto; /* Το footer θα πάει στο κάτω μέρος */
+}
+.back-button, .front-button  {
+  flex: 1;
+  max-width: 200px;
+}
+
+.back-button {
+  text-align: left;
+}
+
+.front-button {
+  text-align: right;
+}
+.Some{
+ background:#D3D3D3;
+}

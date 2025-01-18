@@ -1,0 +1,95 @@
+/* CVButton.css */
+
+.cv-container {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 800px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cv-header {
+  background-color: #375a7f;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.cv-content {
+  display: flex;
+}
+
+.cv-sidebar {
+  width: 30%;
+  background-color: #f7f7f7;
+  padding: 15px;
+  border-right: 1px solid #ccc;
+}
+
+.photo-upload {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.photo-preview {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9ecef;
+  overflow: hidden;
+}
+
+.photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidebar-fields li {
+  margin: 10px 0;
+}
+
+.cv-main {
+  width: 70%;
+  padding: 15px;
+}
+
+.cv-section {
+  margin-bottom: 20px;
+}
+
+.cv-section h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #375a7f;
+}
+
+.cv-section textarea {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  resize: vertical;
+}
+
+.back-button, .front-button  {
+  flex: 1;
+  max-width: 200px;
+}
+
+.back-button {
+  text-align: left;
+}
+
+.front-button {
+  text-align: right;
+}

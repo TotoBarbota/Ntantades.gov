@@ -1,0 +1,75 @@
+.page-content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.Option1Page5 {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 85%;          /* Πλάτος 85% της οθόνης */
+  margin: 0 auto;      /* Κεντράρισμα του πλαισίου */
+   background: rgba(255, 255, 255, 0.7);    /* Λευκό φόντο */
+     font-family: 'Arial', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Προαιρετικό: προσθέτει μια απαλή σκιά */
+}
+.content-wrapper {
+  width: 80%;
+  max-width: 1200px;
+}
+.Some{
+ background:#D3D3D3;
+}
+
+.section-divider {
+  height: 1px;
+  background-color: #666;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0 10px;
+}
+
+.subsection-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.back-button, .front-button  {
+  flex: 1;
+  max-width: 200px;
+}
+
+.back-button {
+  text-align: left;
+}
+
+.front-button {
+  text-align: right;
+}
+.exit-button {
+  text-align: center;
+}
+
+footer {
+  margin-top: auto;
+}
+.exit-button {
+  margin: 2rem 0;  
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Χωρίζει τα κουμπιά στις δύο άκρες */
+  align-items: center; /* Κεντράρει τα κουμπιά κατακόρυφα */
+  margin: 20px auto; /* Προσθήκη κενών γύρω από τα κουμπιά */
+  width: 90%; /* Το πλαίσιο των κουμπιών να καταλαμβάνει το 90% του πλάτους */
+  max-width: 1200px; /* Μέγιστο πλάτος */
+}

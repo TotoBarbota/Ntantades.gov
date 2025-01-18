@@ -3,6 +3,13 @@ export const Routes = {
     Home: '/Home',
     Login: '/login',
     Ntantades: 'ntantades',
+    Option1Page1: '\Option1Page1',
+    Option1Page2: '\Option1Page2',
+    Option1Page3: '\Option1Page3',
+    Option1Page4: '\Option1Page4',
+    Option1Page5: '\Option1Page5',
+    CV: '\CV',
+    Details: '\Details'
     LoginVerification: '/loginVerification',
     AitisiSimmetoxis: '/aitisi-simmetoxis',
     SearchProfessional: 'search-professional',
