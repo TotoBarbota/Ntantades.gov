@@ -24,12 +24,20 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     if (await authContext.signIn(email, password)) {
       console.log("return Url ", `${returnURL}`);
-      console.log(location.state);
+      // console.log(location.state);
       if (returnURL === undefined || returnURL === null || returnURL === "/") {
         console.log("return was null");
         navigate(Routes.Home);
       } else {
-        navigate(`/${returnURL}`);
+        console.log("return Url ", returnURL);
+        if (
+          returnURL === "check-ntanta-is-valid" &&
+          authContext.currentUser.isNtanta == false
+        ) {
+          navigate(`/option1page1`, { replace: true });
+        } else {
+          navigate("/ntantades");
+        }
       }
     } else {
       setErrorMessage("Invalid username or password."); // Handle login failure

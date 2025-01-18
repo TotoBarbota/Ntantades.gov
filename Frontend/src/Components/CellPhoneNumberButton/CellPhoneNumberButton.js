@@ -1,13 +1,14 @@
 ﻿import React, { useState } from "react";
 import "./CellPhoneNumberButton.css";
 
-const CellPhoneNumberButton = () => {
+const CellPhoneNumberButton = ({ props }) => {
+  const { house_phone_number, setHouse_phone_number } = props;
   const [message, setMessage] = useState("");
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       setMessage("Το Σταθερό καταχωρήθηκε επιτυχώς!");
-      
+
       // Εξαφάνιση του μηνύματος μετά από 5 δευτερόλεπτα
       setTimeout(() => {
         setMessage("");
@@ -16,18 +17,23 @@ const CellPhoneNumberButton = () => {
   };
 
   return (
-    <div className="input-container right-aligned"> {/* Χρησιμοποίησε left-aligned ή right-aligned */}
-      <label htmlFor="name-input" className="input-label">Σταθερό</label>
+    <div className="input-container right-aligned">
+      {" "}
+      {/* Χρησιμοποίησε left-aligned ή right-aligned */}
+      <label htmlFor="name-input" className="input-label">
+        Σταθερό
+      </label>
       <input
         id="name-input"
         className="custom-input"
         type="text"
         placeholder=""
         onKeyPress={handleKeyPress}
+        onChange={(e) => setHouse_phone_number(e.target.value)}
       />
       {message && <p className="success-message">{message}</p>}
     </div>
   );
 };
 
-export default  CellPhoneNumberButton;
+export default CellPhoneNumberButton;

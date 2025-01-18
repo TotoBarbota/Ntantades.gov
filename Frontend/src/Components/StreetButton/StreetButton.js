@@ -1,13 +1,14 @@
 ﻿import React, { useState } from "react";
 import "./StreetButton.css";
 
-const StreetButton = () => {
+const StreetButton = ({ props }) => {
+  const { streetName, setStreetName } = props;
   const [message, setMessage] = useState("");
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       setMessage("Η Οδός καταχωρήθηκε επιτυχώς!");
-      
+
       // Εξαφάνιση του μηνύματος μετά από 5 δευτερόλεπτα
       setTimeout(() => {
         setMessage("");
@@ -16,18 +17,23 @@ const StreetButton = () => {
   };
 
   return (
-    <div className="input-container left-aligned"> {/* Χρησιμοποίησε left-aligned ή right-aligned */}
-      <label htmlFor="name-input" className="input-label">Οδός</label>
+    <div className="input-container left-aligned">
+      {" "}
+      {/* Χρησιμοποίησε left-aligned ή right-aligned */}
+      <label htmlFor="name-input" className="input-label">
+        Οδός
+      </label>
       <input
         id="name-input"
         className="custom-input"
         type="text"
         placeholder=""
         onKeyPress={handleKeyPress}
+        onChange={(e) => setStreetName(e.target.value)}
       />
       {message && <p className="success-message">{message}</p>}
     </div>
   );
 };
 
-export default  StreetButton;
+export default StreetButton;

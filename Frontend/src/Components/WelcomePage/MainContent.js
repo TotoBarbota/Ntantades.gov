@@ -22,6 +22,14 @@ const MainContent = () => {
   };
   const authContext = useAuth();
 
+  function handleOnClick() {
+    if (!authContext.isAuthenticated) {
+      navigate(Routes.Login, {
+        state: { returnURL: Routes.Ntantades },
+      });
+    } else navigate(Routes.Option1Page1);
+  }
+
   return (
     <div className="WelcomePage-MainContent">
       <h1 className="text-2xl font-bold" style={{ fontSize: "42px" }}>
@@ -85,9 +93,15 @@ const MainContent = () => {
           onClick={() => {
             if (!authContext.isAuthenticated) {
               navigate(Routes.Login, {
-                state: { returnURL: Routes.Ntantades },
+                state: { returnURL: Routes.CheckNtantaisValid },
               });
-            } else navigate(Routes.Ntantades);
+            } else {
+              if (!authContext.currentUser.isNtanta) {
+                navigate(Routes.Option1Page1);
+              } else {
+                navigate(Routes.Ntantades);
+              }
+            }
           }}
         >
           {" "}

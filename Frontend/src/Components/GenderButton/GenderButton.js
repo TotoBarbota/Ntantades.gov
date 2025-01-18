@@ -1,8 +1,8 @@
 ﻿import React, { useState } from "react";
 import "./GenderButton.css";
 
-const GenderButton = () => {
-  const [gender, setGender] = useState("");
+const GenderButton = ({ props }) => {
+  const { gender, setGender } = props;
   const [message, setMessage] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -56,4 +56,3 @@ const GenderButton = () => {
 };
 
 export default GenderButton;
-

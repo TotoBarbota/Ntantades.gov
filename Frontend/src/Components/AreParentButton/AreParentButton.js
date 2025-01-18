@@ -1,7 +1,8 @@
 ﻿import React, { useState } from "react";
 import "./AreParentButton.css";
 
-const AreParentButton = () => {
+const AreParentButton = ({ props }) => {
+  const { isParent, setIsParent } = props;
   const [gender, setGender] = useState("");
   const [message, setMessage] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -11,6 +12,7 @@ const AreParentButton = () => {
   };
 
   const handleGenderSelect = (selectedGender) => {
+    setIsParent(selectedGender === "Ναι");
     setGender(selectedGender);
     setShowDropdown(false);
     setMessage("Το φύλο καταχωρήθηκε επιτυχώς!");

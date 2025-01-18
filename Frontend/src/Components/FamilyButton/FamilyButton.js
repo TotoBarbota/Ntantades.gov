@@ -1,8 +1,8 @@
 ﻿import React, { useState } from "react";
 import "./FamilyButton.css";
 
-const FamilyButton = () => {
-  const [gender, setGender] = useState("");
+const FamilyButton = ({ props }) => {
+  const { family_state, setFamily_state } = props;
   const [message, setMessage] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -10,8 +10,8 @@ const FamilyButton = () => {
     setShowDropdown(!showDropdown);
   };
 
-  const handleGenderSelect = (selectedGender) => {
-    setGender(selectedGender);
+  const handleFamilySelect = (selectedGender) => {
+    setFamily_state(selectedGender);
     setShowDropdown(false);
     setMessage("Το φύλο καταχωρήθηκε επιτυχώς!");
     setTimeout(() => {
@@ -30,7 +30,7 @@ const FamilyButton = () => {
           className="custom-input"
           type="text"
           placeholder="Επιλέξτε"
-          value={gender}
+          value={family_state}
           readOnly
         />
         <button className="dropdown-icon" onClick={handleIconClick}>
@@ -42,7 +42,7 @@ const FamilyButton = () => {
               <div
                 key={option}
                 className="dropdown-item"
-                onClick={() => handleGenderSelect(option)}
+                onClick={() => handleFamilySelect(option)}
               >
                 {option}
               </div>
@@ -56,4 +56,3 @@ const FamilyButton = () => {
 };
 
 export default FamilyButton;
-

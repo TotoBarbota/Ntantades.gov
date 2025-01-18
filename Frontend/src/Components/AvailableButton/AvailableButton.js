@@ -1,34 +1,62 @@
 ﻿import React, { useState } from "react";
 import "./AvailableButton.css";
 
-const AvailableButton = () => {
-  const [selectedDays, setSelectedDays] = useState([]);
-  const [selectedTimes, setSelectedTimes] = useState({});
+const AvailableButton = ({ props }) => {
+  const {
+    available_days,
+    available_hours,
+    setAvailable_days,
+    setAvailable_hours,
+  } = props;
+
   const [currentDay, setCurrentDay] = useState("");
 
-  const days = ["Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο", "Κυριακή"];
+  const days = [
+    "Δευτέρα",
+    "Τρίτη",
+    "Τετάρτη",
+    "Πέμπτη",
+    "Παρασκευή",
+    "Σάββατο",
+    "Κυριακή",
+  ];
   const times = [
-    "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00",
-    "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00",
+    "6:00",
+    "7:00",
+    "8:00",
+    "9:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
   ];
 
   const handleDayClick = (day) => {
     setCurrentDay(day);
-    if (!selectedDays.includes(day)) {
-      setSelectedDays([...selectedDays, day]);
+    if (!available_days.includes(day)) {
+      setAvailable_days([...available_days, day]);
     }
   };
 
   const handleTimeChange = (time, allDay = false) => {
-    setSelectedTimes((prev) => ({
+    setAvailable_hours((prev) => ({
       ...prev,
-      [currentDay]: allDay ? ["Όλη μέρα διαθέσιμος/η"] : [...(prev[currentDay] || []), time],
+      [currentDay]: allDay
+        ? ["Όλη μέρα διαθέσιμος/η"]
+        : [...(prev[currentDay] || []), time],
     }));
   };
 
   const clearSelections = () => {
-    setSelectedDays([]);
-    setSelectedTimes({});
+    setAvailable_days([]);
+    setAvailable_hours({});
     setCurrentDay("");
   };
 
@@ -55,17 +83,19 @@ const AvailableButton = () => {
               <input
                 type="checkbox"
                 onChange={() => handleTimeChange(time)}
-                checked={selectedTimes[currentDay]?.includes(time) || false}
+                checked={available_hours[currentDay]?.includes(time) || false}
               />
               {time}
             </label>
           ))}
-          <button onClick={() => handleTimeChange(null, true)}>Όλη μέρα διαθέσιμος/η</button>
+          <button onClick={() => handleTimeChange(null, true)}>
+            Όλη μέρα διαθέσιμος/η
+          </button>
         </div>
       )}
 
       {/* Περίληψη επιλογών */}
-      {Object.keys(selectedTimes).length > 0 && (
+      {Object.keys(available_hours).length > 0 && (
         <div className="selection-summary">
           <table>
             <thead>
@@ -75,10 +105,10 @@ const AvailableButton = () => {
               </tr>
             </thead>
             <tbody>
-              {selectedDays.map((day, index) => (
+              {available_days.map((day, index) => (
                 <tr key={index}>
                   <td>{day}</td>
-                  <td>{selectedTimes[day]?.join(", ") || ""}</td>
+                  <td>{available_hours[day]?.join(", ") || ""}</td>
                 </tr>
               ))}
             </tbody>
@@ -96,4 +126,3 @@ const AvailableButton = () => {
 };
 
 export default AvailableButton;
-

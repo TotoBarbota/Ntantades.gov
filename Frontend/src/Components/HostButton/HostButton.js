@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import "./HostButton.css";
 
-const HostButton = () => {
+const HostButton = ({ props }) => {
+  const { canHost, setCanHost } = props;
   const [selectedHost, setSelectedHost] = useState(""); // Επιλεγμένο φύλο
   const [message, setMessage] = useState(""); // Μήνυμα επιτυχίας
   const [showDropdown, setShowDropdown] = useState(false); // Εμφάνιση dropdown
 
   const handleHostSelect = (host) => {
+    setCanHost(host === "Ναι");
+
     setSelectedHost(host); // Καταχώρηση φύλου
     setShowDropdown(false); // Κλείσιμο dropdown
     setMessage("Η Επιλογή σας καταχωρήθηκε επιτυχώς!"); // Εμφάνιση μηνύματος
