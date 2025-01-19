@@ -26,9 +26,9 @@ function LoginVerificationPage() {
         e.preventDefault();
 
         const queryParams = new URLSearchParams(location.search);
-        const username = queryParams.get('username') || '/';
+        const username = queryParams.get('username') || '/Home';
         const name = queryParams.get('name') || '/';
-        const returnUrl = queryParams.get('returnUrl') || '/';
+        const returnUrl = queryParams.get('returnUrl') || '/Home';
         console.log('username is ', { username });
 
         const code = passwords.find(

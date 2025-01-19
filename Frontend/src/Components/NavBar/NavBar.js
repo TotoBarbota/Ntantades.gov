@@ -15,6 +15,7 @@ function NavBar() {
     const handleConnect = () => {
 
         const returnUrl = location; // Replace with your desired return URL
+        console.log("First login", returnUrl);
         navigate(Routes.Login); // Navigate to the login page with returnUrl as a query parameter
     };
 

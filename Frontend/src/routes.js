@@ -9,7 +9,7 @@ export const Routes = {
     Option1Page4: '\Option1Page4',
     Option1Page5: '\Option1Page5',
     CV: '\CV',
-    Details: '\Details'
+    Details: '\Details',
     LoginVerification: '/loginVerification',
     AitisiSimmetoxis: '/aitisi-simmetoxis',
     SearchProfessional: 'search-professional',

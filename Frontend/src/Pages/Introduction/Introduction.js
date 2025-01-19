@@ -29,7 +29,11 @@ const Introduction = () => {
                 το Routing, Breadcrumb, NavBar, Footer.
             </p>
 
-            <button style={styles.button} onClick={() => navigate(Routes.Home) }>Start</button>
+            <button style={styles.button} onClick={() => {
+                navigate(Routes.Home);
+                localStorage.removeItem('name');
+                localStorage.removeItem('loggedIn');
+                localStorage.removeItem('username'); }}>Start</button>
         </div>
     );
 };

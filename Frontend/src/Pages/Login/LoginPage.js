@@ -13,9 +13,9 @@ function LoginPage() {
     const queryParams = new URLSearchParams(location.search);
 
     useEffect(() => {
-        console.log(localStorage.getItem('loggedIn'));
+        console.log("loggedIn?:",localStorage.getItem('loggedIn'));
         if (localStorage.getItem('loggedIn') === 'true') {
-            const returnUrl = queryParams.get('returnUrl') || '/';
+            const returnUrl = queryParams.get('returnUrl') || '/Home';
             navigate(returnUrl);
         }
     }, []);
@@ -42,8 +42,8 @@ function LoginPage() {
             setErrorMessage(''); // Clear error message
             
 
-            const returnUrl = queryParams.get('returnUrl') || '/'; // Default to home if no returnUrl
-            console.log('return Url ', { returnUrl });
+            const returnUrl = queryParams.get('returnUrl') || '/Home'; // Default to home if no returnUrl
+            console.log('return Url from login Page', { returnUrl });
 
             navigate(`${Routes.LoginVerification}?returnUrl=${encodeURIComponent(returnUrl)}&username=${encodeURIComponent(username)}&name=${encodeURIComponent(user.name)}`);
         } else {
