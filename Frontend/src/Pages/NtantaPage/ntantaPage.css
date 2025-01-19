@@ -1,0 +1,5 @@
+.application-page-container .application-page-breadcrumb{
+    justify-content:center;
+    display: grid;
+    margin-left: -480px;
+}

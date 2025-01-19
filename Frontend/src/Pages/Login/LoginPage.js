@@ -30,10 +30,10 @@ function LoginPage() {
         navigate(Routes.Home);
       } else {
         console.log("return Url ", returnURL);
-        if (
-          returnURL === "check-ntanta-is-valid" &&
-          authContext.currentUser.isNtanta == false
-        ) {
+        const {
+          currentUser: { isNtanta },
+        } = authContext;
+        if (returnURL === "check-ntanta-is-valid" && !isNtanta) {
           navigate(`/option1page1`, { replace: true });
         } else {
           navigate("/ntantades");

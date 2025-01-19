@@ -108,6 +108,7 @@ function Option1Page2() {
     first_aid_description: "",
     sistatikes: "",
     education: "",
+    isNtanta: true,
   };
 
   // useEffect(() => {

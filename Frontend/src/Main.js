@@ -27,11 +27,51 @@ import AgreementPage from "./Pages/AgreementPage/AgreementPage.js";
 import WorkCertificationPage from "./Pages/WorkCertificationPage/WorkCertificationPage.js";
 import CheckNtantaisValid from "./Pages/CheckNtantaisValid.js";
 import { OptionProvider } from "./contexts/OptionContext.js";
+import NtantaPage from "./Pages/NtantaPage/NtantaPage.js";
 
 const router = createBrowserRouter([
   { path: Routes.Home, element: <App /> },
   // { path: Routes.First, element: <Introduction /> },
-  { path: Routes.Ntantades, element: <App /> },
+  {
+    path: Routes.Ntantades,
+    element: (
+      <ProtectedRoute>
+        <NtantaPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: `${Routes.Ntantades}/${Routes.NtantaInvites}`,
+    element: (
+      <ProtectedRoute>
+        <NtantaInvites />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: `${Routes.Ntantades}/${Routes.NtantaHistory}`,
+    element: (
+      <ProtectedRoute>
+        <NtantaHistory />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: `${Routes.Ntantades}/${Routes.NtantaAgreements}`,
+    element: (
+      <ProtectedRoute>
+        <NtantaAgreements />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: `${Routes.Ntantades}/${Routes.NtantaRatings}`,
+    element: (
+      <ProtectedRoute>
+        <NtantaRatings />
+      </ProtectedRoute>
+    ),
+  },
   { path: Routes.Login, element: <LoginPage /> },
   { path: Routes.LoginVerification, element: <LoginVerificationPage /> },
   {
