@@ -52,7 +52,9 @@ const router = createBrowserRouter([
     { path: `${Routes.Application}/${Routes.SearchProfessional}/${Routes.Professional}`, element: <ProfessionalPage /> },
     { path: `${Routes.Application}/${Routes.Meeting}`, element: <MeetingsPage /> },
     { path: `${Routes.Application}/${Routes.ApplicationsWithProfessionals}`, element: <ApplicationsWithProsPage /> },
+    { path: `${Routes.Application}/${Routes.ApplicationsWithProfessionals}/${Routes.ParentFormToProfessional}`, element: <ParentFormToProfessional   /> },
     { path: `${Routes.Application}/${Routes.Agreement}`, element: <AgreementPage /> },
+    { path: `${Routes.Application}/${Routes.Agreement}/${Routes.ParentFormToProfessional}`, element: <ParentFormToProfessional /> },
     { path: `${Routes.Application}/${Routes.WorkCertification}`, element: <WorkCertificationPage /> },
     { path: "*", element: <PageNotFound /> }
 ]);

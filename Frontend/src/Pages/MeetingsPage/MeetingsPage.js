@@ -15,7 +15,7 @@ function MeetingsPage() {
             id: 1,
             status: "Αίτημα αλλαγής ώρας / τοποθεσίας",
             person: "Θοδωρής Μηνιάδης",
-            date: "23-07-2024, 18:30",
+            date: "23-07-2024",
             location: "Google Meet (http://gmeetlink)",
             actions: ["Αποδοχή", "Αλλαγή ημερομηνίας", "Απόρριψη"],
             statusNum: 'request', // aitima allagis oras
@@ -24,7 +24,7 @@ function MeetingsPage() {
             id: 2,
             status: "Αναμονή απάντησης από επαγγελματία",
             person: "Θοδωρής Μηνιάδης",
-            date: "23-07-2024, 18:30",
+            date: "23-07-2024",
             location: "Google Meet (http://gmeetlink)",
             actions: ["Αλλαγή ημερομηνίας", "Ακύρωση"],
             statusNum: 'wait', // anamoni apantisis
@@ -34,7 +34,7 @@ function MeetingsPage() {
             id: 3,
             status: "Προγραμματισμένη",
             person: "Θοδωρής Μηνιάδης",
-            date: "23-07-2024, 18:30",
+            date: "23-07-2024",
             location: "Google Meet (http://gmeetlink)",
             actions: ["Αλλαγή ημερομηνίας", "Ακύρωση"],
             statusNum: "schedule", // programmatismeni
@@ -44,7 +44,7 @@ function MeetingsPage() {
             id: 4,
             status: "Ολοκληρωμένη",
             person: "Θοδωρής Μηνιάδης",
-            date: "23-07-2024, 18:30",
+            date: "23-07-2024",
             location: "Google Meet (http://gmeetlink)",
             actions: ["Αίτημα συνεργασίας", "Αρχειοθέτηση"],
             statusNum: "completed", // olokliromeni
@@ -54,7 +54,7 @@ function MeetingsPage() {
             id: 5,
             status: "Άκυρη",
             person: "Θοδωρής Μηνιάδης",
-            date: "23-07-2024, 18:30",
+            date: "23-07-2024",
             location: "Google Meet (http://gmeetlink)",
             actions: [],
             statusNum: "closed", // olokliromeni

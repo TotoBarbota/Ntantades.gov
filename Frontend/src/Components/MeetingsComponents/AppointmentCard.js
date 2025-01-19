@@ -10,7 +10,8 @@ const AppointmentCard = ({ data }) => {
 
     const handleFormRequest = (person) => {
         console.log("Open form for professionals");
-        navigate(Routes.ParentFormToProfessional, {state: person});
+        const state = { receiver: person, isLocked: false, from: localStorage.getItem('name'), date: "Επιλέξτε ημερομηνία", hoursPerW: 0, days: [] }
+        navigate(Routes.ParentFormToProfessional, { state: state });
     }
 
     const handleActionClick = (action, person) => {

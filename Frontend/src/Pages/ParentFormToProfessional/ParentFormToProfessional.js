@@ -21,8 +21,8 @@ function ParentFormToProfessional() {
         from: "",
         to: "",
         duration: null,
-        hoursPerWeek: null,
-        workingDays: [],
+        hoursPerWeek: state.hoursPerW,
+        workingDays: state.days,
     });
 
     const daysOfWeek = [
@@ -38,19 +38,18 @@ function ParentFormToProfessional() {
     const [errors, setErrors] = useState({});
 
     const validateForm = () => {
+        console.log("Validation Form: State -> ", state);
         const newErrors = {};
-
-        if (!formData.from.trim()) {
-            newErrors.from = "Το πεδίο 'Από' είναι υποχρεωτικό.";
-        }
-        if (!formData.duration) {
-            newErrors.duration = "Το πεδίο 'Διάρκεια' είναι υποχρεωτικό.";
-        }
-        if (!formData.hoursPerWeek || isNaN(formData.hoursPerWeek) || formData.hoursPerWeek <= 0) {
-            newErrors.hoursPerWeek = "Το πεδίο 'Ώρες ανά εβδομάδα' πρέπει να είναι ένας αριθμός μεγαλύτερος από το 0.";
-        }
-        if (!formData.workingDays.length) {
-            newErrors.workingDays = "Πρέπει να επιλέξετε τουλάχιστον μία ημέρα.";
+        if (!state.isLocked) {
+            if (!formData.duration) {
+                newErrors.duration = "Το πεδίο 'Διάρκεια' είναι υποχρεωτικό.";
+            }
+            if (!formData.hoursPerWeek || isNaN(formData.hoursPerWeek) || formData.hoursPerWeek <= 0) {
+                newErrors.hoursPerWeek = "Το πεδίο 'Ώρες ανά εβδομάδα' πρέπει να είναι ένας αριθμός μεγαλύτερος από το 0.";
+            }
+            if (!formData.workingDays.length) {
+                newErrors.workingDays = "Πρέπει να επιλέξετε τουλάχιστον μία ημέρα.";
+            }
         }
 
         setErrors(newErrors);
@@ -59,7 +58,6 @@ function ParentFormToProfessional() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         if (validateForm()) {
             console.log("Form Data:", formData);
             navigate(-1);
@@ -90,11 +88,11 @@ function ParentFormToProfessional() {
                             <label htmlFor="from">Από</label>
                             <InputText
                                 id="from"
-                                value={formData.from}
-                                onChange={(e) => setFormData({ ...formData, from: e.target.value })}
-                                placeholder="Εισάγετε το ονοματεπώνυμο σας"
+                                value={state.from}
+                                readOnly
+                                tooltip="This field is locked"
+                                className="p-inputtext-lg"
                             />
-                            {errors.from && <small className="p-error">{errors.from}</small>}
                         </div>
 
                         {/* Προς */}
@@ -102,7 +100,7 @@ function ParentFormToProfessional() {
                             <label htmlFor="to">Προς</label>
                             <InputText
                                 id="to"
-                                value={state}
+                                value={state.receiver}
                                 readOnly
                                 tooltip="This field is locked"
                                 className="p-inputtext-lg"
@@ -116,7 +114,8 @@ function ParentFormToProfessional() {
                                 id="duration"
                                 value={formData.duration}
                                 onChange={(e) => setFormData({ ...formData, duration: e.value })}
-                                placeholder="Επιλέξτε ημερομηνία"
+                                disabled={state.isLocked === true}
+                                placeholder={state.date}
                                 dateFormat="dd/mm/yy"
                             />
                             {errors.duration && <small className="p-error">{errors.duration}</small>}
@@ -129,6 +128,7 @@ function ParentFormToProfessional() {
                                 id="hoursPerWeek"
                                 type="number"
                                 value={formData.hoursPerWeek}
+                                readOnly={state.isLocked === true} 
                                 onChange={(e) => setFormData({ ...formData, hoursPerWeek: e.target.value })}
                                 placeholder="Εισάγετε τις ώρες"
                             />
@@ -142,6 +142,7 @@ function ParentFormToProfessional() {
                                 id="workingDays"
                                 value={formData.workingDays}
                                 options={daysOfWeek}
+                                disabled={state.isLocked === true} 
                                 onChange={(e) => setFormData({ ...formData, workingDays: e.value })}
                                 placeholder="Επιλέξτε ημέρες"
                                 display="chip"
@@ -149,7 +150,9 @@ function ParentFormToProfessional() {
                             {errors.workingDays && <small className="p-error">{errors.workingDays}</small>}
                         </div>
 
-                        <Button type="submit" label="Submit" className="p-mt-2" />
+                        <Button type="submit" label={state.isLocked === false
+                            ? "Αποστολή αίτησης"
+                            : "Πίσω"} className="p-mt-2" />
                     </form>
                 </div>
             </div>
