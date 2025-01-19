@@ -38,7 +38,7 @@ function NavBar() {
                     <p className='accessibilityTitle'>Accessibility Menu</p>
                 </div>
                 <div className='logo'>
-                    <img src={'/pictures/png/govgrYpiresiaFrontidas.png'} alt="Logo" />
+                    <img src={'/pictures/png/govgrYpiresiaFrontidas.png'} alt="Logo" onClick={() => navigate(Routes.Home)} />
                 </div>
                 <div className='right-section'>
                     <p className="name" >{name}</p>
