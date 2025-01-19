@@ -28,6 +28,11 @@ import WorkCertificationPage from "./Pages/WorkCertificationPage/WorkCertificati
 import CheckNtantaisValid from "./Pages/CheckNtantaisValid.js";
 import { OptionProvider } from "./contexts/OptionContext.js";
 import NtantaPage from "./Pages/NtantaPage/NtantaPage.js";
+import NtantaInvitesPage from "./Pages/NtantaInvitesPage/NtantaInvitesPage.js";
+import NtantaHistoryPage from "./Pages/NtantaHistoryPage/NtantaHistoryPage.js";
+import NtantaAgreementsPage from "./Pages/NtantaAgreementsPage/NtantaAgreementsPage.js";
+import NtantaRatingsPage from "./Pages/NtantaRatingsPage/NtantaRatingsPage.js";
+import NtantaMeetingPage from "./Pages/NtantaMeetingPage/NtantaMeetingPage.js";
 
 const router = createBrowserRouter([
   { path: Routes.Home, element: <App /> },
@@ -44,7 +49,15 @@ const router = createBrowserRouter([
     path: `${Routes.Ntantades}/${Routes.NtantaInvites}`,
     element: (
       <ProtectedRoute>
-        <NtantaInvites />
+        <NtantaInvitesPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: `${Routes.Ntantades}/${Routes.NtantaMeeting}`,
+    element: (
+      <ProtectedRoute>
+        <NtantaMeetingPage />
       </ProtectedRoute>
     ),
   },
@@ -52,7 +65,7 @@ const router = createBrowserRouter([
     path: `${Routes.Ntantades}/${Routes.NtantaHistory}`,
     element: (
       <ProtectedRoute>
-        <NtantaHistory />
+        <NtantaHistoryPage />
       </ProtectedRoute>
     ),
   },
@@ -60,7 +73,7 @@ const router = createBrowserRouter([
     path: `${Routes.Ntantades}/${Routes.NtantaAgreements}`,
     element: (
       <ProtectedRoute>
-        <NtantaAgreements />
+        <NtantaAgreementsPage />
       </ProtectedRoute>
     ),
   },
@@ -68,12 +81,13 @@ const router = createBrowserRouter([
     path: `${Routes.Ntantades}/${Routes.NtantaRatings}`,
     element: (
       <ProtectedRoute>
-        <NtantaRatings />
+        <NtantaRatingsPage />
       </ProtectedRoute>
     ),
   },
   { path: Routes.Login, element: <LoginPage /> },
   { path: Routes.LoginVerification, element: <LoginVerificationPage /> },
+  { path: Routes.Register, element: <RegisterPage /> },
   {
     path: Routes.Option1Page1,
     element: (

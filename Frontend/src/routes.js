@@ -2,6 +2,7 @@ export const Routes = {
   // First: "/",
   Home: "/",
   Login: "login",
+  Register: "register",
   Ntantades: "ntantades",
   Option1Page1: "/Option1Page1",
   Option1Page2: "/Option1Page2",

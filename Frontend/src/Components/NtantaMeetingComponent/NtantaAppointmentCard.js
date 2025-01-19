@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./AppointmentCard.css";
+import "./NtantaAppointmentCard.css";
 import {
   collection,
   doc,
@@ -10,7 +10,7 @@ import {
 import { db } from "../../config/firebase";
 import { useAuth } from "../../contexts/AuthContext";
 
-const AppointmentCard = ({ data }) => {
+const NtantaAppointmentCard = ({ data }) => {
   const {
     id,
     isOnline,
@@ -42,6 +42,7 @@ const AppointmentCard = ({ data }) => {
         return "UNKNOWN";
     }
   })();
+  console.log("cardStatus is ", cardStatus);
 
   const date = meet_date
     ? meet_date.toDate().toLocaleString()
@@ -69,7 +70,7 @@ const AppointmentCard = ({ data }) => {
     const getUser = async () => {
       const querySnapshot = await getDocs(userRef);
       const userDoc = querySnapshot.docs.find(
-        (doc) => doc.id === ntanta_user_id
+        (doc) => doc.id === parent_user_id
       );
       const userData = userDoc.data();
       setPerson(`${userData.firstName} ${userData.lastName}`);
@@ -139,4 +140,4 @@ const AppointmentCard = ({ data }) => {
   );
 };
 
-export default AppointmentCard;
+export default NtantaAppointmentCard;

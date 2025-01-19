@@ -1,16 +1,20 @@
-﻿import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useEffect } from "react";
 
 import NavBar from "../../Components/NavBar/NavBar";
 import Footer from "../../Components/Footer/Footer";
 import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
-import Tabs from "../../Components/MeetingsComponents/Tabs";
-import AppointmentCard from "../../Components/MeetingsComponents/AppointmentCard";
-import "./MeetingsPage.css";
+
+import "./ntantaPage.css";
 import { useAuth } from "../../contexts/AuthContext";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase";
+import AppointmentCard from "../../Components/MeetingsComponents/AppointmentCard";
+import Tabs from "../../Components/MeetingsComponents/Tabs";
+import NtantaAppointmentCard from "../../Components/NtantaMeetingComponent/NtantaAppointmentCard";
 
-function MeetingsPage() {
+const NtantaMeetingPage = () => {
   const [activeTab, setActiveTab] = useState("Τρέχοντα");
   const authContext = useAuth();
   const { currentUser } = authContext.currentUser;
@@ -27,7 +31,7 @@ function MeetingsPage() {
         id: doc.id,
         ...doc.data(),
       }))
-      .filter((meeting) => meeting.parent_user_id === authContext.userID);
+      .filter((meeting) => meeting.ntanta_user_id === authContext.userID);
     setMeetings(meetingsArray);
   };
 
@@ -40,7 +44,7 @@ function MeetingsPage() {
         const date = meeting.meet_date.toDate().toLocaleDateString("el-GR");
         const userRef = collection(db, "users");
         const userDoc = getDocs(userRef).then((snapshot) =>
-          snapshot.docs.find((doc) => doc.id === meeting.ntanta_user_id)
+          snapshot.docs.find((doc) => doc.id === meeting.parent_user_id)
         );
         const person = userDoc.then((doc) => {
           const { firstName, lastName } = doc.data();
@@ -126,7 +130,7 @@ function MeetingsPage() {
           />
           <div className="appointment-cards">
             {filteredAppointments.map((appointment) => (
-              <AppointmentCard data={appointment} />
+              <NtantaAppointmentCard data={appointment} />
             ))}
           </div>
         </div>
@@ -134,6 +138,5 @@ function MeetingsPage() {
       <Footer />
     </div>
   );
-}
-
-export default MeetingsPage;
+};
+export default NtantaMeetingPage;
