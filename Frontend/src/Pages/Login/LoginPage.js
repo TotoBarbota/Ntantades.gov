@@ -29,8 +29,22 @@ function LoginPage() {
         ) {
           console.log("return was null");
           navigate(Routes.Home);
+        } else if (returnURL === Routes.CheckNtantaisValid) {
+          setTimeout(() => {}, 2000);
+          console.log("isNtanta", await authContext.isNtanta);
+          if ((await authContext.isNtanta) === false) {
+            setTimeout(() => {
+              navigate(`/${Routes.Option1Page1}`, { replace: true });
+            }, 500);
+          } else {
+            setTimeout(() => {
+              navigate(`/${Routes.Ntantades}`, { replace: true });
+            }, 500);
+          }
         } else {
-          navigate(returnURL, { replace: true });
+          setTimeout(() => {
+            navigate(`/${Routes.AitisiSimmetoxis}`, { replace: true });
+          }, 500);
         }
       }
     } catch (error) {

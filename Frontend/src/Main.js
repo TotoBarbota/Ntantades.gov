@@ -39,7 +39,7 @@ const router = createBrowserRouter([
   { path: Routes.Home, element: <App /> },
   // { path: Routes.First, element: <Introduction /> },
   {
-    path: Routes.Ntantades,
+    path: `${Routes.Ntantades}`,
     element: (
       <ProtectedRoute>
         <NtantaPage />
@@ -166,21 +166,21 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: Routes.AitisiSimmetoxis,
+    path: `${Routes.AitisiSimmetoxis}`,
     element: (
       <ProtectedRoute>
         <AitisiSimmetoxisPage />
       </ProtectedRoute>
     ),
   },
-  {
-    path: Routes.CheckNtantaisValid,
-    element: (
-      <ProtectedRoute>
-        <CheckNtantaisValid />
-      </ProtectedRoute>
-    ),
-  },
+  // {
+  //   path: `${Routes.CheckNtantaisValid}`,
+  //   element: (
+  //     <ProtectedRoute>
+  //       <CheckNtantaisValid />
+  //     </ProtectedRoute>
+  //   ),
+  // },
   {
     path: `${Routes.AitisiSimmetoxis}/${Routes.Application}`,
     element: (

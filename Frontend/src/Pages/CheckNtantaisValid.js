@@ -2,33 +2,25 @@ import { Redirect, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useEffect } from "react";
 import App from "./WelcomePage/App";
+import { Routes } from "../routes";
 
 const CheckNtantaisValid = () => {
-  const { currentUser } = useAuth();
+  const authContext = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
     const checkIfNtanta = async () => {
-      if (!currentUser.isNtanta) {
+      if (
+        authContext.currentUser.isNtanta === false ||
+        authContext.currentUser.isNtanta === null
+      ) {
         console.log("got here");
-        navigate("/option1page1", { replace: true });
+        navigate(`${Routes.Option1Page1}`, { replace: true });
       }
-      navigate("/");
+      navigate(`${Routes.Ntantades}`, { replace: true });
     };
     checkIfNtanta();
   }, []);
-
-  return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <div className="card p-3">
-        <div className="d-flex justify-content-center">
-          <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
-        <p className="text-center">Loggin in...</p>
-      </div>
-    </div>
-  );
+  return <></>;
 };
 
 export default CheckNtantaisValid;

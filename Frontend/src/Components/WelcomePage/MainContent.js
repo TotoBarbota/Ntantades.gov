@@ -97,8 +97,10 @@ const MainContent = () => {
                   Routes.CheckNtantaisValid
                 )}`
               );
+            } else if (authContext.currentUser.isNtanta === true) {
+              navigate(Routes.Ntantades, { replace: true });
             } else {
-              navigate(Routes.CheckNtantaisValid);
+              navigate(Routes.Option1Page1, { replace: true });
             }
           }}
         >

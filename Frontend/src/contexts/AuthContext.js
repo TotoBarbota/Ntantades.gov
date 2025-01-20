@@ -24,23 +24,26 @@ export default function AuthProvider({ children }) {
   const [username, setUsername] = useState(null);
   const [userID, setUserID] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isNtanta, setIsNtanta] = useState(false);
 
   async function signIn(email, password) {
     try {
-      await signInWithEmailAndPassword(auth, email, password).then(
-        async (userCredential) => {
-          const userid = userCredential.user.uid;
-          const userRef = collection(db, "users");
-          const querySnapshot = await getDocs(userRef);
-          const userDoc = querySnapshot.docs.find((doc) => doc.id === userid);
-          const currentUser = userDoc.data();
-          setUsername(currentUser.username);
-          setCurrentUser(currentUser);
-          setIsAuthenticated(true);
-          setUserID(userid);
-          console.log("current user is ", currentUser);
-        }
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
       );
+      const userid = userCredential.user.uid;
+      const userRef = collection(db, "users");
+      const querySnapshot = await getDocs(userRef);
+      const userDoc = querySnapshot.docs.find((doc) => doc.id === userid);
+      const currentUser = userDoc.data();
+      setUsername(currentUser.username);
+      setCurrentUser(currentUser);
+      setIsAuthenticated(true);
+      setIsNtanta(currentUser.isNtanta);
+      setUserID(userid);
+      console.log("current user is ", currentUser);
       return true;
     } catch (error) {
       console.log("signIn Error", email, password);
@@ -66,6 +69,7 @@ export default function AuthProvider({ children }) {
               await setDoc(doc(userRef, userid), details);
               setCurrentUser(user);
               setUsername(user.username);
+
               setIsAuthenticated(true);
             }
           });
@@ -85,6 +89,8 @@ export default function AuthProvider({ children }) {
   function logoutHandler() {
     setIsAuthenticated(false);
     signOut(auth);
+    setIsNtanta(false);
+    setUserID(null);
     setUsername("");
     setCurrentUser(null);
   }
@@ -94,6 +100,7 @@ export default function AuthProvider({ children }) {
     isAuthenticated,
     username,
     userID,
+    isNtanta,
     signIn,
     logout: logoutHandler,
     register,
