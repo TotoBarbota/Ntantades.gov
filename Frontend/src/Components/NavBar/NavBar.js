@@ -13,8 +13,6 @@ function NavBar() {
   const authContext = useAuth();
   const [username, setUsername] = useState(authContext.username);
 
-  console.log("authcontext username", authContext.username);
-
   return (
     <div className="NavBar">
       <nav className="NavBar-nav">

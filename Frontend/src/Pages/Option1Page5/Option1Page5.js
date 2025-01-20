@@ -44,6 +44,7 @@ function Option1Page5() {
       });
 
       alert("Η Οριστικη Υποβολή πραγματοποιήθηκε!");
+      navigate(`/${Routes.Ntantades}`, { replace: true });
     });
   };
 

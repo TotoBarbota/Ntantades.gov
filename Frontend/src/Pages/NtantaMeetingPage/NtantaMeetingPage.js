@@ -18,7 +18,6 @@ const NtantaMeetingPage = () => {
   const [activeTab, setActiveTab] = useState("Τρέχοντα");
   const authContext = useAuth();
   const { currentUser } = authContext.currentUser;
-  console.log("current user is ", currentUser);
 
   // state 1 : request, state 2: wait, state 3: schedule, state 4: completed, state 5: closed
   const [meetings, setMeetings] = useState([]);
@@ -66,7 +65,6 @@ const NtantaMeetingPage = () => {
   useEffect(() => {
     getMeetings();
     formatMeetings(meetings);
-    console.log("meetings are ", meetings);
   }, [meetings.some((meeting) => meeting.state !== meeting.prevState)]);
 
   const actionsMap = {
@@ -90,8 +88,6 @@ const NtantaMeetingPage = () => {
   };
 
   const filteredAppointments = filterAppointments(meetings, activeTab);
-
-  console.log("filteredAppointments", filteredAppointments);
 
   const useDocumentTitle = (title) => {
     useEffect(() => {

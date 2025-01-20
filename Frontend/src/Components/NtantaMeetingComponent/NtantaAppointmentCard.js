@@ -22,7 +22,6 @@ const NtantaAppointmentCard = ({ data }) => {
     place,
     state,
   } = data;
-  console.log("data is ", data);
 
   const statusNum = state;
 
@@ -42,7 +41,6 @@ const NtantaAppointmentCard = ({ data }) => {
         return "UNKNOWN";
     }
   })();
-  console.log("cardStatus is ", cardStatus);
 
   const date = meet_date
     ? meet_date.toDate().toLocaleString()
@@ -87,7 +85,6 @@ const NtantaAppointmentCard = ({ data }) => {
   // state 1 : request, state 2: wait, state 3: schedule, state 4: completed, state 5: closed
 
   function handleOnClick(action) {
-    console.log(action, id);
     const meetRef = collection(db, "meetings");
     switch (action) {
       case "Αποδοχή":

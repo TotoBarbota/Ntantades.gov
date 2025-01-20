@@ -11,7 +11,6 @@ import {
 import { db } from "../../config/firebase";
 
 const NtantaRatingsComponent = ({ data }) => {
-  console.log("data in ratings ", data);
   const [person, setPerson] = useState("");
   const { ntanta_user_id, parent_user_id, value } = data;
   const [parentUser, setParentUser] = useState({});

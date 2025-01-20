@@ -32,7 +32,6 @@ function NtantaRatingsPage() {
 
   useEffect(() => {
     getRatings();
-    console.log("ratings are ", ratings);
   }, []);
 
   const useDocumentTitle = (title) => {

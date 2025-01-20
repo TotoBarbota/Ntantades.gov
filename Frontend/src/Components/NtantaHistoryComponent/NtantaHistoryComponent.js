@@ -14,7 +14,6 @@ const NtantaHistoryComponent = ({ props }) => {
     payment_value,
   } = props;
 
-  console.log("data in history ", props);
   const [person, setPerson] = useState("");
   useEffect(() => {
     const userRef = collection(db, "users");

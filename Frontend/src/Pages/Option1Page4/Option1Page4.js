@@ -52,11 +52,11 @@ function Option1Page4() {
   const optionContext = useOptions();
 
   const handleSubmitClick = async () => {
-    console.log("sending ", ...optionContext.optionDetails);
+    console.log("sending ", ...Object.values(optionContext.optionDetails));
     await setDoc(
       doc(db, "users", userID),
       {
-        ...optionContext.optionDetails,
+        ...Object.values(optionContext.optionDetails),
         experience_years: post.experience_years,
         isNtanta: true,
       },
@@ -75,7 +75,7 @@ function Option1Page4() {
       const postRef = collection(db, "posts");
       console.log("sending ", post);
       await setDoc(doc(postRef), {
-        ...post,
+        post,
         ntanta_user_id: userID,
       });
       console.log("Document successfully written!");

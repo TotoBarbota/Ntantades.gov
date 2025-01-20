@@ -8,6 +8,7 @@ import { db } from "../../config/firebase";
 const NtantaProfile = () => {
   const authContext = useAuth();
   const [user, setUser] = useState(authContext.currentUser);
+  console.log(user);
   const [isEditMode, setIsEditMode] = useState(false);
 
   const handleEdit = () => {

@@ -17,7 +17,6 @@ const NtantaHistoryPage = () => {
   const [completedAgreements, setCompletedAgreements] = useState([]);
   const [users, setUsers] = useState([]);
   const [agreements, setAgreements] = useState([]);
-  console.log("the userId", authContext.userID);
 
   const agreementsRef = collection(db, "agreements");
 
@@ -62,8 +61,6 @@ const NtantaHistoryPage = () => {
     };
 
     getUsers();
-    console.log("agreements are ", completedAgreements);
-    console.log("users are ", users);
   }, []);
 
   const useDocumentTitle = (title) => {

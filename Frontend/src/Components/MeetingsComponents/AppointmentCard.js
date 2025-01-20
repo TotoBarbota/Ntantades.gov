@@ -73,8 +73,14 @@ const AppointmentCard = ({ data }) => {
       const userDoc = querySnapshot.docs.find(
         (doc) => doc.id === ntanta_user_id
       );
-      const userData = userDoc.data();
-      setPerson(`${userData.firstName} ${userData.lastName}`);
+      const userData = userDoc ? userDoc.data() : null;
+      if (userData) {
+        const firstName = userData.firstName;
+        const lastName = userData.lastName;
+        setPerson(`${firstName} ${lastName}`);
+      } else {
+        console.error("User document not found");
+      }
     };
     getUser();
   }, []);
