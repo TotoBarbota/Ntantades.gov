@@ -41,7 +41,7 @@ export default function AuthProvider({ children }) {
       setUsername(currentUser.username);
       setCurrentUser(currentUser);
       setIsAuthenticated(true);
-      setIsNtanta(currentUser.isNtanta);
+      setIsNtanta(await currentUser.isNtanta);
       setUserID(userid);
       console.log("current user is ", currentUser);
       return true;
@@ -68,6 +68,8 @@ export default function AuthProvider({ children }) {
               const userid = user.uid;
               await setDoc(doc(userRef, userid), details);
               setCurrentUser(user);
+              setIsNtanta(user.isNtanta);
+              setUserID(userid);
               setUsername(user.username);
 
               setIsAuthenticated(true);
