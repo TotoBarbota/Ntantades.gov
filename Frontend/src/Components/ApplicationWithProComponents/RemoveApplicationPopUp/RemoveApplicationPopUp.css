@@ -1,4 +1,4 @@
-﻿.problem-popup-overlay {
+﻿.remove-application-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,25 +11,27 @@
     z-index: 1000;
 }
 
-    .problem-popup-overlay .modal-content {
+    .remove-application-overlay .modal-content {
         background: #fff;
         padding: 20px;
         border-radius: 8px;
         max-width: 90%;
         text-align: center;
+        border: 3px solid #005bac; /* Blue border for styling */
     }
 
-    .problem-popup-overlay .confirmation-modal h2 {
+    .remove-application-overlay .confirmation-modal h2 {
+        color: #005bac;
         margin-bottom: 15px;
     }
 
-    .problem-popup-overlay .confirmation-modal p {
+    .remove-application-overlay .confirmation-modal p {
         font-size: 14px;
         color: #333;
         margin-bottom: 20px;
     }
 
-    .problem-popup-overlay .continue-button {
+    .remove-application-overlay .close-button {
         padding: 10px 20px;
         border: none;
         background: #005bac !important;
@@ -38,27 +40,8 @@
         border-radius: 4px;
         cursor: pointer;
         transition: background 0.3s ease;
-        width: 70%;
-        justify-self: center;
     }
 
-        .problem-popup-overlay .close-button:hover {
+        .remove-application-overlay .close-button:hover {
             background: #004080;
         }
-
-.problem-popup-overlay .months-selector{
-    display: grid;
-    margin-bottom: 20px;
-    gap: 5px;
-}
-
-    .problem-popup-overlay .months-selector select {
-        width: 30%;
-        justify-self: center;
-    }
-
-
-    .problem-popup-overlay .input{
-        display: inline-grid;
-        gap: 1rem;
-    }

@@ -1,0 +1,96 @@
+.aitisi-pros-epaggelmatia-main-container {
+    display: inline-block;
+    justify-items: center;
+    width: 100%;
+}
+
+
+    .aitisi-pros-epaggelmatia-main-container .form-container {
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 20px 100px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+        color: #333333;
+        max-width: 600px;
+        margin: 50px auto;
+    }
+
+        .aitisi-pros-epaggelmatia-main-container .form-container h2 {
+            text-align: center;
+            color: black; 
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+    .aitisi-pros-epaggelmatia-main-container .p-field {
+        margin-bottom: 15px;
+    }
+
+        .aitisi-pros-epaggelmatia-main-container .p-field label {
+            display: block;
+            font-weight: bold;
+            color: #357EBD;
+            margin-bottom: 5px;
+        }
+
+        .aitisi-pros-epaggelmatia-main-container .p-field input,
+        .aitisi-pros-epaggelmatia-main-container .p-field .p-inputtext,
+        .aitisi-pros-epaggelmatia-main-container .p-field .p-calendar,
+        .aitisi-pros-epaggelmatia-main-container .p-field .p-multiselect {
+            width: 100%;
+            border: 1px solid #357EBD;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 1rem;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+            .aitisi-pros-epaggelmatia-main-container .p-field .p-inputtext:focus,
+            .aitisi-pros-epaggelmatia-main-container .p-field .p-calendar:focus,
+            .aitisi-pros-epaggelmatia-main-container .p-field .p-multiselect:focus {
+                outline: none;
+                border: 1px solid #357EBD;
+                box-shadow: 0 0 5px rgba(0, 68, 204, 0.5);
+            }
+
+    .aitisi-pros-epaggelmatia-main-container .p-multiselect {
+        background-color: #ffffff;
+    }
+
+        .aitisi-pros-epaggelmatia-main-container .p-multiselect .p-multiselect-label {
+            color: #357EBD;
+        }
+
+
+    .aitisi-pros-epaggelmatia-main-container .p-button {
+        background-color: #357EBD; 
+        border: none;
+        color: #ffffff; /* White Text */
+        font-size: 1rem;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .aitisi-pros-epaggelmatia-main-container .p-button:hover {
+            background-color: #003399; 
+            transform: translateY(-2px); 
+        }
+
+        .aitisi-pros-epaggelmatia-main-container .p-button:active {
+            background-color: #357EBD;
+            transform: translateY(0);
+        }
+
+    .aitisi-pros-epaggelmatia-main-container .p-multiselect .p-multiselect-placeholder {
+        color: #357EBD;
+    }
+
+    .aitisi-pros-epaggelmatia-main-container .p-multiselect .p-multiselect-token {
+        background-color: #357EBD;
+        color: white;
+    }
+

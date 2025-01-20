@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./AppointmentCard.css";
 import {
   collection,
@@ -9,6 +11,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { useAuth } from "../../contexts/AuthContext";
+import { Routes } from "../../routes";
 
 const AppointmentCard = ({ data }) => {
   const {

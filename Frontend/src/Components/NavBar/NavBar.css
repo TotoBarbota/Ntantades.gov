@@ -50,6 +50,7 @@
 .NavBar .NavBar-nav .logo img {
   width: 550px; /* Adjust size as needed */
   height: auto;
+  cursor: pointer;
 }
 
 .NavBar .NavBar-nav .right-section {

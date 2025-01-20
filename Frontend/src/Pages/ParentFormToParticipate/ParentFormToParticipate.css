@@ -1,0 +1,124 @@
+
+/* General container styles */
+.parent-form-to-participate {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.parent-form-to-participate-main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    .parent-form-to-participate-main-container .parent-nanny-form h2 {
+        text-align: center;
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+
+    .parent-form-to-participate-main-container .aitisi-breadcrumb {
+        margin-bottom: 20px;
+    }
+
+.parent-form-to-participate-main-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.parent-form-to-participate-main-container form label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+    .parent-form-to-participate-main-container .p-field {
+        display: flex;
+        flex-direction: column;
+    }
+
+        .parent-form-to-participate-main-container .p-field input,
+        .parent-form-to-participate-main-container .p-field textarea,
+        .parent-form-to-participate-main-container .p-field-checkbox input,
+        .parent-form-to-participate-main-container .p-field .p-dropdown {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+            .parent-form-to-participate-main-container .p-field input:focus,
+            .parent-form-to-participate-main-container .p-field textarea:focus,
+            .parent-form-to-participate-main-container .p-field-checkbox input:focus,
+            .parent-form-to-participate-main-container .p-field .p-dropdown:focus {
+                border-color: #007bff;
+                box-shadow: 0 0 3px #007bff;
+            }
+
+    .parent-form-to-participate-main-container .p-error {
+        color: #d9534f;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .parent-form-to-participate-main-container .p-field-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+        .parent-form-to-participate-main-container .p-field-checkbox label {
+            font-size: 14px;
+            margin: 0;
+        }
+
+    .parent-form-to-participate-main-container .p-button {
+        align-self: center;
+        background-color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #ffffff;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+        .parent-form-to-participate-main-container .p-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .parent-form-to-participate-main-container .p-button:active {
+            transform: scale(1);
+        }
+
+.parent-form-to-participate-main-container textarea {
+    resize: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .parent-form-to-participate-main-container {
+        padding: 20px;
+    }
+
+    form {
+        gap: 15px;
+    }
+
+    .p-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

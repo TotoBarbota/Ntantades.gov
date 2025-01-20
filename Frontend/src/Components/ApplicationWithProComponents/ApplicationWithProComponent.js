@@ -1,8 +1,31 @@
-﻿import React from "react";
+﻿import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./ApplicationWithProComponent.css";
+import { Routes } from "../../routes";
+import RemoveApplicationPopUp from "./RemoveApplicationPopUp/RemoveApplicationPopUp";
 
 const ApplicationWithProComponent = ({ data }) => {
-    const { person, age, municipality, actions, status } = data;
+    const { person, age, date, hours, days, municipality, actions, status } = data;
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const navigate = useNavigate();
+
+    const handleEdit = () => {
+        const state = { receiver: person, isLocked: false, from: localStorage.getItem('name'), date: date, hoursPerW: hours, days: days }
+        navigate(Routes.ParentFormToProfessional, { state: state });
+    }
+
+    const handleSee = () => {
+        const state = { receiver: person, isLocked: true, from: localStorage.getItem('name'), date: date, hoursPerW: hours, days: days }
+        navigate(Routes.ParentFormToProfessional, { state: state });
+    }
+
+    const handleRemove = () => {
+        setIsPopupOpen(true);
+    }
+
+    const closeModal = () => {
+        setIsPopupOpen(false);
+    }
 
     return (
         <div className={`application-card ${status}`}>
@@ -23,12 +46,19 @@ const ApplicationWithProComponent = ({ data }) => {
                 </div>
                 <div className="card-actions">
                     {actions.map((action, index) => (
-                        <button key={index} className={`action-button ${action}`}>
+                        <button key={index} className={`action-button ${action}`} onClick={action === "Ανασκόπηση-Επεξεργασία" ? handleEdit : action === "Ακύρωση" ? handleRemove : action === "Ανασκόπηση" ? handleSee :  undefined}>
                             {action}
                         </button>
                     ))}
                 </div>
             </div>
+
+            {isPopupOpen && (
+                <RemoveApplicationPopUp
+                    onClose={() => {
+                        closeModal();
+                    }}                />
+            )}
         </div>
     );
 };

@@ -3,10 +3,14 @@ import "./AgreementsComponent.css";
 import EvaluationPopup from "./EvaluationPopup";
 import CompletedAgreementPopup from "./CompletedAgreementPopup/CompletedAgreementPopup";
 import ExtendAgreementPopup from "./ExtendAgreementPopup/ExtendAgreementPopup";
+import { Routes } from "../../routes";
+import { useNavigate } from 'react-router-dom';
+
+
 
 const AgreementsComponent = ({ data }) => {
-    const { person, startDate, finishDate, actions, status, waiting } = data;
-
+    const { person, startDate, finishDate, date, hours, days, actions, status, waiting } = data;
+    const navigate = useNavigate();
     // Modal state
     const [isAgreementModalOpen, setIsAgreementModalOpen] = useState(false);
     const [isCompletedAgreementModalOpen, setIsCompletedAgreementModalOpen] = useState(false);
@@ -39,6 +43,11 @@ const AgreementsComponent = ({ data }) => {
     const closeExtendAgreementModal = () => {
         setIsExtendAgreementModalOpen(false);
     };
+
+    const handleSee = () => {
+        const state = { receiver: person, isLocked: true, from: localStorage.getItem('name'), date: date, hoursPerW: hours, days: days }
+        navigate(Routes.ParentFormToProfessional, { state: state });
+    }
 
     return (
         <div className={`agreement-card ${status}`}>
@@ -76,6 +85,8 @@ const AgreementsComponent = ({ data }) => {
                                     ? openCompletedAgreementModal
                                     : action === "Επέκταση Συνεργασίας"
                                         ? openExtendAgreementModal
+                                        : action === "Ανασκόπηση"
+                                        ? handleSee
                                     : undefined}
                         >
                             {action}
