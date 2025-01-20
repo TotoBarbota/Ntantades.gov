@@ -18,11 +18,14 @@ function AitiseisSimmetoxis() {
       const querySnapshot = await getDocs(aithseisRef);
 
       const aithshDoc = querySnapshot.docs.find(
-        (doc) => doc.data().parent_user_id === userId
+        (doc) => doc.data()?.parent_user_id === userId
       );
-
-      setAithsh(aithshDoc ? aithshDoc.data() : null);
-      console.log("aithsh", aithshDoc.data());
+      console.log("aithshDoc", aithshDoc.data());
+      if (!aithshDoc || !aithshDoc.data()) {
+        setAithsh(null);
+      } else {
+        setAithsh(aithshDoc.data());
+      }
     }
   }
 

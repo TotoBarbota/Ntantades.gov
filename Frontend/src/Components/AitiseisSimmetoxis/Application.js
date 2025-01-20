@@ -8,7 +8,7 @@ import "./Application.css";
 import { useState } from "react";
 
 function Application(props) {
-  // type = 0 -> right, type = 1 -> not right, type = 2 -> on hold
+  // type = 0 -> completed, type = 1 -> not completed, type = 2 -> on hold
   console.log("props are ", props);
   const navigate = useNavigate();
   const { approved } = props;
