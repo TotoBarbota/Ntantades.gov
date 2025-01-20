@@ -92,15 +92,13 @@ const MainContent = () => {
           label="Εγγραφή στο μητρώο επιμελητών (επιμελητής/τρια)"
           onClick={() => {
             if (!authContext.isAuthenticated) {
-              navigate(Routes.Login, {
-                state: { returnURL: Routes.CheckNtantaisValid },
-              });
+              navigate(
+                `${Routes.Login}?returnUrl=${encodeURIComponent(
+                  Routes.CheckNtantaisValid
+                )}`
+              );
             } else {
-              if (!authContext.currentUser.isNtanta) {
-                navigate(Routes.Option1Page1);
-              } else {
-                navigate(Routes.Ntantades);
-              }
+              navigate(Routes.CheckNtantaisValid);
             }
           }}
         >
@@ -112,9 +110,11 @@ const MainContent = () => {
                     επιλογή επιμελητή /τριας (ωφελούμενο πρόσωπο)"
           onClick={() => {
             if (!authContext.isAuthenticated) {
-              navigate(Routes.Login, {
-                state: { returnURL: Routes.AitisiSimmetoxis },
-              });
+              navigate(
+                `${Routes.Login}?returnUrl=${encodeURIComponent(
+                  Routes.AitisiSimmetoxis
+                )}`
+              );
             } else navigate(Routes.AitisiSimmetoxis);
           }}
         >

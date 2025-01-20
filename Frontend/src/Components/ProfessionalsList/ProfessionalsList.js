@@ -55,7 +55,7 @@ const ProfessionalsList = ({ users }) => {
                 >
                   {user.name}
                 </h3>
-                <p>Ηλικιακή κατάταξη: {user.age}</p>
+                <p>Ηλικία: {user.age}</p>
               </div>
               <div className="second-row">
                 <div className="left-itms">

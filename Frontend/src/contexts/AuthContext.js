@@ -27,16 +27,14 @@ export default function AuthProvider({ children }) {
 
   async function signIn(email, password) {
     try {
-      console.log("signIn", email, password);
       await signInWithEmailAndPassword(auth, email, password).then(
         async (userCredential) => {
-          console.log("signIn Success", email, password);
           const userid = userCredential.user.uid;
           const userRef = collection(db, "users");
           const querySnapshot = await getDocs(userRef);
           const userDoc = querySnapshot.docs.find((doc) => doc.id === userid);
           const currentUser = userDoc.data();
-          setUsername(currentUser.email);
+          setUsername(currentUser.username);
           setCurrentUser(currentUser);
           setIsAuthenticated(true);
           setUserID(userid);
@@ -67,7 +65,7 @@ export default function AuthProvider({ children }) {
               const userid = user.uid;
               await setDoc(doc(userRef, userid), details);
               setCurrentUser(user);
-              setUsername(user.email);
+              setUsername(user.username);
               setIsAuthenticated(true);
             }
           });
@@ -85,10 +83,10 @@ export default function AuthProvider({ children }) {
   }
 
   function logoutHandler() {
-    signOut(auth);
-    setUsername(null);
-    setCurrentUser(null);
     setIsAuthenticated(false);
+    signOut(auth);
+    setUsername("");
+    setCurrentUser(null);
   }
 
   const authContextValues = {
@@ -99,6 +97,7 @@ export default function AuthProvider({ children }) {
     signIn,
     logout: logoutHandler,
     register,
+    setCurrentUser,
   };
 
   return (

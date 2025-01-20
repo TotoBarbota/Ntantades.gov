@@ -1,8 +1,20 @@
 ﻿import React, { useState } from "react";
-import "./ExtendAgreementPopup.css"; // Add styles for the modal
-import CompletedExtendAgreementPopup from "./CompletedExtendAgreementPopup";
+import "./NtantaExtendAgreementPopup.css"; // Add styles for the modal
+import NtantaCompletedExtendAgreementPopup from "./NtantaCompletedExtendAgreementPopup";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../../../config/firebase";
 
-const ExtendAgreementPopup = ({ onClose }) => {
+const NtantaExtendAgreementPopup = ({ onClose, props }) => {
+  const {
+    status,
+    state,
+    start_date,
+    ntanta_user_id,
+    parent_user_id,
+    end_date,
+    waiting,
+  } = props;
+
   const [selectedDuration, setSelectedDuration] = useState(""); // State for the selected duration
   const [isCompletedExtendOpen, setIsCompletedExtendOpen] = useState(false);
 
@@ -25,6 +37,19 @@ const ExtendAgreementPopup = ({ onClose }) => {
       alert("Παρακαλώ επιλέξτε χρονικό διάστημα!");
       return;
     }
+    const date = new Date();
+    date.setMonth(date.getMonth() + parseInt(selectedDuration));
+    const id = props.id;
+    updateDoc(doc(db, "agreements", id), {
+      end_date: date,
+    })
+      .then(() => {
+        console.log("Agreement end date updated successfully!");
+      })
+      .catch((error) => {
+        console.error("Error updating agreement end date: ", error);
+      });
+
     console.log(`Selected Duration: ${selectedDuration} μήνες`);
     setIsCompletedExtendOpen(true);
   };
@@ -67,7 +92,7 @@ const ExtendAgreementPopup = ({ onClose }) => {
       </div>
 
       {isCompletedExtendOpen && (
-        <CompletedExtendAgreementPopup
+        <NtantaCompletedExtendAgreementPopup
           isOpen={isCompletedExtendOpen}
           onClose={() => {
             closeModal();
@@ -80,4 +105,4 @@ const ExtendAgreementPopup = ({ onClose }) => {
   );
 };
 
-export default ExtendAgreementPopup;
+export default NtantaExtendAgreementPopup;

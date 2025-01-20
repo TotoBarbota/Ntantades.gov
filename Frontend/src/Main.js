@@ -33,6 +33,7 @@ import NtantaHistoryPage from "./Pages/NtantaHistoryPage/NtantaHistoryPage.js";
 import NtantaAgreementsPage from "./Pages/NtantaAgreementsPage/NtantaAgreementsPage.js";
 import NtantaRatingsPage from "./Pages/NtantaRatingsPage/NtantaRatingsPage.js";
 import NtantaMeetingPage from "./Pages/NtantaMeetingPage/NtantaMeetingPage.js";
+import NtantaAgreementPage from "./Pages/NtantaAgreementsPage/NtantaAgreementsPage.js";
 
 const router = createBrowserRouter([
   { path: Routes.Home, element: <App /> },
@@ -73,7 +74,7 @@ const router = createBrowserRouter([
     path: `${Routes.Ntantades}/${Routes.NtantaAgreements}`,
     element: (
       <ProtectedRoute>
-        <NtantaAgreementsPage />
+        <NtantaAgreementPage />
       </ProtectedRoute>
     ),
   },

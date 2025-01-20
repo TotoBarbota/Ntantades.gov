@@ -11,7 +11,9 @@ import { useAuth } from "../../contexts/AuthContext";
 function NavBar() {
   const navigate = useNavigate();
   const authContext = useAuth();
-  console.log(authContext.currentUser);
+  const [username, setUsername] = useState(authContext.username);
+
+  console.log("authcontext username", authContext.username);
 
   return (
     <div className="NavBar">
@@ -28,7 +30,7 @@ function NavBar() {
         <div className="right-section">
           {authContext.isAuthenticated ? (
             <>
-              <p className="name">{authContext.currentUser.username}</p>
+              <p className="name">{authContext.username}</p>
               <Button
                 className="connect"
                 label="Logout"

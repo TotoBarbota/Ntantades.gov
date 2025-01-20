@@ -1,0 +1,47 @@
+﻿.completed-agreement-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+    .completed-agreement-overlay .modal-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 90%;
+        text-align: center;
+        border: 3px solid #005bac; /* Blue border for styling */
+    }
+
+    .completed-agreement-overlay .confirmation-modal h2 {
+        color: #005bac;
+        margin-bottom: 15px;
+    }
+
+    .completed-agreement-overlay .confirmation-modal p {
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .completed-agreement-overlay .close-button {
+        padding: 10px 20px;
+        border: none;
+        background: #005bac !important;
+        color: white;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+        .completed-agreement-overlay .close-button:hover {
+            background: #004080;
+        }

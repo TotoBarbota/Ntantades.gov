@@ -11,36 +11,31 @@ function LoginPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
+  const returnURL = queryParams.get("returnUrl") || "/";
   const authContext = useAuth();
-  const { returnURL } = location.state || "/";
-  // console.log("Location state: ", location.state); // Debugging line
-  // console.log("Return URL: ", returnURL); // Debugging line
-
   const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
-    if (await authContext.signIn(email, password)) {
-      console.log("return Url ", `${returnURL}`);
-      // console.log(location.state);
-      if (returnURL === undefined || returnURL === null || returnURL === "/") {
-        console.log("return was null");
-        navigate(Routes.Home);
-      } else {
-        console.log("return Url ", returnURL);
-        const {
-          currentUser: { isNtanta },
-        } = authContext;
-        if (returnURL === "check-ntanta-is-valid" && !isNtanta) {
-          navigate(`/option1page1`, { replace: true });
+  const handleSubmit = async () => {
+    try {
+      const login = await authContext.signIn(email, password);
+      if (login) {
+        if (
+          returnURL === undefined ||
+          returnURL === null ||
+          returnURL === "/"
+        ) {
+          console.log("return was null");
+          navigate(Routes.Home);
         } else {
-          navigate("/ntantades");
+          navigate(returnURL, { replace: true });
         }
       }
-    } else {
+    } catch (error) {
       setErrorMessage("Invalid username or password."); // Handle login failure
+      console.error(error);
     }
   };
 

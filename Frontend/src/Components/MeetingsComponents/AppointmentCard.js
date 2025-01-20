@@ -22,7 +22,6 @@ const AppointmentCard = ({ data }) => {
     place,
     state,
   } = data;
-  console.log("data is ", data);
 
   const statusNum = state;
 

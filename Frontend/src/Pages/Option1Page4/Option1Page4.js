@@ -14,6 +14,7 @@ import { Routes } from "../../routes";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { useAuth } from "../../contexts/AuthContext";
+import { useOptions } from "../../contexts/OptionContext";
 
 function Option1Page4() {
   const navigate = useNavigate();
@@ -45,10 +46,22 @@ function Option1Page4() {
       console.log("Post", post);
     }
   }, [region, available_days, available_hours, experience_years]);
+
   const authContext = useAuth();
   const userID = authContext.userID;
+  const optionContext = useOptions();
 
   const handleSubmitClick = async () => {
+    console.log("sending ", ...optionContext.optionDetails);
+    await setDoc(
+      doc(db, "users", userID),
+      {
+        ...optionContext.optionDetails,
+        experience_years: post.experience_years,
+        isNtanta: true,
+      },
+      { merge: true }
+    );
     setShowMessage(true);
     console.log(available_days, available_hours, region, experience_years);
     setPost({

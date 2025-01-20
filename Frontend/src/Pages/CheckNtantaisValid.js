@@ -16,6 +16,19 @@ const CheckNtantaisValid = () => {
     };
     checkIfNtanta();
   }, []);
+
+  return (
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <div className="card p-3">
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <p className="text-center">Loggin in...</p>
+      </div>
+    </div>
+  );
 };
 
 export default CheckNtantaisValid;
